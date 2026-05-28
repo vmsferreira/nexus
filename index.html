@@ -3,1001 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workout Hub — Mockups de UI</title>
+<title>NEXUS — UI Mockups</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: #111;
-    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 20px 60px;
-    color: #fff;
-  }
-
-  /* PAGE HEADER */
-  .page-header {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  .page-header h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #FF6B35;
-    letter-spacing: -0.5px;
-    margin-bottom: 4px;
-  }
-  .page-header p {
-    font-size: 13px;
-    color: #888;
-  }
-
-  /* SCREEN PILLS */
-  .nav-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 24px;
-    max-width: 560px;
-  }
-  .pill {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 1px solid #333;
-    color: #888;
-    font-size: 13px;
-    cursor: pointer;
-    background: transparent;
-    transition: all .15s;
-    font-family: inherit;
-  }
+  body { background: #111; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 32px 20px 60px; color: #fff; }
+  .page-header { text-align: center; margin-bottom: 20px; }
+  .page-header h1 { font-size: 22px; font-weight: 700; color: #FF6B35; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .page-header p { font-size: 13px; color: #888; }
+  .mode-switcher { display: flex; gap: 6px; margin-bottom: 20px; background: #1A1A1A; border-radius: 24px; padding: 4px; border: 1px solid #2E2E2E; }
+  .mode-btn { padding: 9px 22px; border-radius: 20px; border: none; background: transparent; color: #666; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all .2s; }
+  .mode-btn.active { background: #FF6B35; color: #fff; }
+  .nav-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
+  #app-nav { max-width: 560px; }
+  #ob-nav  { max-width: 375px; display: none; }
+  .pill { padding: 7px 14px; border-radius: 20px; border: 1px solid #333; color: #888; font-size: 12px; font-weight: 600; cursor: pointer; background: transparent; transition: all .15s; font-family: inherit; white-space: nowrap; }
   .pill:hover { border-color: #555; color: #ccc; }
-  .pill.active { background: #FF6B35; border-color: #FF6B35; color: #fff; font-weight: 600; }
-
-  /* PHONE FRAME */
-  .phone-wrap {
-    display: flex;
-    justify-content: center;
-  }
-  .phone {
-    width: 375px;
-    height: 780px;
-    background: #0F0F0F;
-    border-radius: 44px;
-    border: 2px solid #3A3A3A;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  /* Notch */
-  .notch {
-    width: 120px;
-    height: 28px;
-    background: #0F0F0F;
-    border-radius: 0 0 18px 18px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    border-bottom: 1px solid #2A2A2A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .notch::before {
-    content: '';
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: #1A1A1A;
-    border: 1px solid #333;
-  }
-
-  /* STATUS BAR */
-  .status-bar {
-    height: 44px;
-    background: #0F0F0F;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding: 0 24px 6px;
-    flex-shrink: 0;
-    z-index: 5;
-  }
-  .status-bar .time { font-size: 15px; font-weight: 600; color: #fff; }
-  .status-bar .icons { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #fff; }
-
-  /* SCREEN AREA */
-  .screen { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
-
-  /* SCROLL AREA */
-  .scroll-area {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+  .pill.active { background: #FF6B35; border-color: #FF6B35; color: #fff; }
+  .phone-wrap { display: flex; justify-content: center; }
+  .phone { width: 375px; height: 780px; background: #0F0F0F; border-radius: 44px; border: 2px solid #3A3A3A; box-shadow: 0 32px 80px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05); overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .notch { width: 120px; height: 28px; background: #0F0F0F; border-radius: 0 0 18px 18px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 20; border-bottom: 1px solid #2A2A2A; display: flex; align-items: center; justify-content: center; }
+  .notch::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #1A1A1A; border: 1px solid #333; }
+  .phone-status-bar { height: 44px; background: #0F0F0F; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 24px 6px; flex-shrink: 0; z-index: 10; position: relative; }
+  .phone-status-bar .time { font-size: 15px; font-weight: 600; color: #fff; }
+  .phone-status-bar .icons { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #fff; }
+  #app-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0; }
+  #app-content .screen { flex: 1; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+  #ob-content { position: absolute; top: 44px; left: 0; right: 0; bottom: 0; display: none; overflow: hidden; }
+  #ob-content.visible { display: block; }
+  .ob-screen { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: none; flex-direction: column; overflow: hidden; }
+  .ob-screen.active { display: flex; }
+  .scroll-area { flex: 1; overflow-y: auto; overflow-x: hidden; }
   .scroll-area::-webkit-scrollbar { display: none; }
-
-  /* BOTTOM TAB */
-  .bottom-tab {
-    height: 72px;
-    background: #1A1A1A;
-    border-top: 1px solid #2E2E2E;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-shrink: 0;
-    padding-bottom: 12px;
-    position: relative;
-  }
-  .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    flex: 1;
-    cursor: pointer;
-    padding: 8px 0;
-  }
+  .bottom-tab { height: 72px; background: #1A1A1A; border-top: 1px solid #2E2E2E; display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; padding-bottom: 12px; position: relative; }
+  .tab-item { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; cursor: pointer; padding: 8px 0; }
   .tab-item .ti { font-size: 22px; color: #555; }
   .tab-item.active .ti { color: #FF6B35; }
   .tab-label { font-size: 10px; color: #555; }
   .tab-item.active .tab-label { color: #FF6B35; }
-  .fab-btn {
-    width: 56px; height: 56px;
-    border-radius: 28px;
-    background: #FF6B35;
-    display: flex; align-items: center; justify-content: center;
-    position: absolute;
-    bottom: 22px; left: 50%; transform: translateX(-50%);
-    box-shadow: 0 4px 16px rgba(255,107,53,0.5);
-    cursor: pointer;
-  }
+  .fab-btn { width: 56px; height: 56px; border-radius: 28px; background: #FF6B35; display: flex; align-items: center; justify-content: center; position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); box-shadow: 0 4px 16px rgba(255,107,53,0.5); cursor: pointer; }
   .fab-btn .ti { font-size: 24px; color: #fff; }
-
-  /* COMMON COMPONENTS */
-  .screen-hdr {
-    padding: 12px 18px 10px;
-    background: #0F0F0F;
-    border-bottom: 1px solid #1E1E1E;
-    flex-shrink: 0;
-  }
-  .card {
-    background: #1A1A1A;
-    border-radius: 16px;
-    padding: 16px;
-    margin: 0 14px 12px;
-  }
-  .card-sm {
-    background: #242424;
-    border-radius: 12px;
-    padding: 10px 13px;
-  }
+  .screen-hdr { padding: 12px 18px 10px; background: #0F0F0F; border-bottom: 1px solid #1E1E1E; flex-shrink: 0; }
+  .card { background: #1A1A1A; border-radius: 16px; padding: 16px; margin: 0 14px 12px; }
+  .card-sm { background: #242424; border-radius: 12px; padding: 10px 13px; }
   .hero { font-size: 40px; font-weight: 700; color: #fff; line-height: 1; }
   .title { font-size: 16px; font-weight: 600; color: #fff; }
   .subtitle { font-size: 13px; color: #999; line-height: 1.4; }
-  .label {
-    font-size: 11px; color: #555;
-    text-transform: uppercase; letter-spacing: .5px;
-  }
+  .label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: .5px; }
   .metric-val { font-size: 24px; font-weight: 700; color: #fff; }
   .metric-unit { font-size: 12px; color: #888; }
   .row { display: flex; align-items: center; gap: 8px; }
   .row-between { display: flex; align-items: center; justify-content: space-between; }
   .col { display: flex; flex-direction: column; gap: 3px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
-  .avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: #FF6B35;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
-  }
-  .badge {
-    display: inline-flex; align-items: center;
-    padding: 3px 8px; border-radius: 10px;
-    font-size: 11px; font-weight: 600;
-  }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; background: #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .badge { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
   .pbar-track { height: 5px; background: #2E2E2E; border-radius: 3px; overflow: hidden; }
   .pbar-fill { height: 100%; border-radius: 3px; }
   .divider { height: 1px; background: #1E1E1E; margin: 0 18px; }
-  .section-hdr {
-    padding: 14px 18px 8px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .input-box {
-    background: #242424;
-    border-radius: 10px;
-    padding: 8px 12px;
-    text-align: center;
-    font-size: 20px; font-weight: 700; color: #fff;
-    flex: 1;
-  }
-  .input-box.active {
-    background: rgba(255,107,53,0.2);
-    border: 1px solid #FF6B35;
-  }
-  .set-row {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #1E1E1E;
-  }
-  .set-num {
-    width: 28px; height: 28px; border-radius: 14px;
-    background: #2E2E2E;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 600; color: #888;
-    flex-shrink: 0;
-  }
+  .section-hdr { padding: 14px 18px 8px; display: flex; align-items: center; justify-content: space-between; }
+  .input-box { background: #242424; border-radius: 10px; padding: 8px 12px; text-align: center; font-size: 20px; font-weight: 700; color: #fff; flex: 1; }
+  .input-box.active { background: rgba(255,107,53,0.2); border: 1px solid #FF6B35; }
+  .set-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1E1E1E; }
+  .set-num { width: 28px; height: 28px; border-radius: 14px; background: #2E2E2E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #888; flex-shrink: 0; }
   .set-num.active { background: #FF6B35; color: #fff; }
   .set-num.done { background: #1A3A2A; color: #27AE60; }
-  .zone-seg {
-    height: 22px;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 10px; color: #fff; font-weight: 700;
-  }
-  .int-row {
-    display: flex; align-items: center; gap: 12px;
-    padding: 11px 18px;
-  }
-  .int-icon {
-    width: 40px; height: 40px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
-  }
+  .zone-seg { height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; font-weight: 700; }
+  .int-row { display: flex; align-items: center; gap: 12px; padding: 11px 18px; }
+  .int-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
   .status-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-  .btn-primary {
-    background: #FF6B35; border-radius: 14px;
-    padding: 14px 22px;
-    font-size: 15px; font-weight: 700; color: #fff;
-    cursor: pointer; border: none; font-family: inherit;
-    transition: opacity .15s;
-  }
-  .btn-primary:hover { opacity: .9; }
-  .btn-secondary {
-    background: #1A1A1A; border-radius: 12px;
-    padding: 10px 16px;
-    font-size: 13px; font-weight: 600; color: #fff;
-    cursor: pointer; border: 1px solid #333; font-family: inherit;
-  }
-
-  /* FOOTER */
-  .page-footer {
-    margin-top: 32px;
-    text-align: center;
-    font-size: 12px;
-    color: #555;
-  }
+  #app-content .btn-primary { background: #FF6B35; border-radius: 14px; padding: 14px 22px; font-size: 15px; font-weight: 700; color: #fff; cursor: pointer; border: none; font-family: inherit; transition: opacity .15s; }
+  #app-content .btn-primary:hover { opacity: .9; }
+  #app-content .btn-secondary { background: #1A1A1A; border-radius: 12px; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #fff; cursor: pointer; border: 1px solid #333; font-family: inherit; }
+  .progress-wrap { padding: 10px 24px 0; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+  .progress-row { display: flex; justify-content: space-between; align-items: center; }
+  .progress-label { color: #888; font-size: 12px; }
+  .progress-step { color: #FF6B35; font-size: 12px; font-weight: 700; }
+  .progress-bar-bg { height: 4px; background: #1e1e1e; border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #FF6B35, #FF8C5A); border-radius: 2px; transition: width 0.4s ease; }
+  .screen-body { flex: 1; padding: 24px 24px 0; overflow-y: auto; scrollbar-width: none; min-height: 0; }
+  .screen-body::-webkit-scrollbar { display: none; }
+  .screen-title { font-size: 24px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+  .screen-subtitle { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.5; }
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .options-grid.single { grid-template-columns: 1fr; }
+  .options-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .option-card { background: #1a1a1a; border: 2px solid #252525; border-radius: 16px; padding: 16px 12px; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; user-select: none; }
+  .option-card:active { transform: scale(0.97); }
+  .option-card.selected { border-color: var(--sport-color, #FF6B35); background: rgba(255,107,53,0.1); }
+  .option-card.selected .option-icon { color: var(--sport-color, #FF6B35); }
+  .option-card.selected .option-label { color: #fff; }
+  .option-icon { font-size: 28px; color: #555; transition: color 0.2s; }
+  .option-label { font-size: 13px; font-weight: 600; color: #888; transition: color 0.2s; }
+  .sport-gym{--sport-color:#FF6B35}.sport-run{--sport-color:#27AE60}.sport-cycle{--sport-color:#E67E22}.sport-swim{--sport-color:#2980B9}.sport-row{--sport-color:#C0392B}.sport-hyrox{--sport-color:#8E44AD}.sport-tri{--sport-color:#16A085}.sport-walk{--sport-color:#1ABC9C}
+  .goal-card { background: #1a1a1a; border: 2px solid #252525; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .goal-card.selected { border-color: #FF6B35; background: rgba(255,107,53,0.08); }
+  .goal-icon-wrap { width: 44px; height: 44px; background: #252525; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #FF6B35; flex-shrink: 0; }
+  .goal-card.selected .goal-icon-wrap { background: rgba(255,107,53,0.2); }
+  .goal-text { flex: 1; }
+  .goal-title { font-size: 14px; font-weight: 700; color: #ccc; margin-bottom: 2px; }
+  .goal-card.selected .goal-title { color: #fff; }
+  .goal-desc { font-size: 12px; color: #555; }
+  .check-circle { width: 22px; height: 22px; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: transparent; font-size: 12px; transition: all 0.2s; }
+  .goal-card.selected .check-circle { border-color: #FF6B35; background: #FF6B35; color: #fff; }
+  .level-cards { display: flex; flex-direction: column; gap: 10px; }
+  .level-card { background: #1a1a1a; border: 2px solid #252525; border-radius: 16px; padding: 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; }
+  .level-card.selected { border-color: #FF6B35; background: rgba(255,107,53,0.08); }
+  .level-badge { font-size: 28px; flex-shrink: 0; }
+  .level-info { flex: 1; }
+  .level-name { font-size: 15px; font-weight: 700; color: #ccc; }
+  .level-card.selected .level-name { color: #fff; }
+  .level-desc { font-size: 12px; color: #555; margin-top: 2px; }
+  .level-dots { display: flex; gap: 4px; }
+  .ob-dot { width: 8px; height: 8px; border-radius: 50%; background: #333; display: inline-block; }
+  .ob-dot.filled { background: #FF6B35; }
+  .days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 20px; }
+  .day-btn { aspect-ratio: 1; background: #1a1a1a; border: 2px solid #252525; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #555; cursor: pointer; transition: all 0.2s; }
+  .day-btn.selected { border-color: #FF6B35; background: rgba(255,107,53,0.15); color: #FF6B35; }
+  .duration-row { display: flex; gap: 8px; margin-bottom: 20px; }
+  .dur-btn { flex: 1; padding: 10px 4px; background: #1a1a1a; border: 2px solid #252525; border-radius: 12px; text-align: center; cursor: pointer; transition: all 0.2s; }
+  .dur-btn.selected { border-color: #FF6B35; background: rgba(255,107,53,0.1); }
+  .dur-main { font-size: 14px; font-weight: 700; color: #888; }
+  .dur-btn.selected .dur-main { color: #FF6B35; }
+  .dur-sub { font-size: 10px; color: #555; }
+  .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .device-chip { background: #1a1a1a; border: 2px solid #252525; border-radius: 14px; padding: 14px 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s; }
+  .device-chip.selected { border-color: #FF6B35; background: rgba(255,107,53,0.08); }
+  .device-logo { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; background: #252525; flex-shrink: 0; }
+  .device-name { font-size: 13px; font-weight: 700; color: #888; }
+  .device-chip.selected .device-name { color: #fff; }
+  .device-type { font-size: 10px; color: #555; }
+  .health-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .health-chip { background: #1a1a1a; border: 2px solid #252525; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: all 0.2s; }
+  .health-chip.selected { border-color: #E67E22; background: rgba(230,126,34,0.08); }
+  .health-chip-icon { font-size: 22px; }
+  .health-chip-label { font-size: 12px; font-weight: 700; color: #888; }
+  .health-chip.selected .health-chip-label { color: #E67E22; }
+  .input-row { background: #1a1a1a; border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+  .input-label { font-size: 14px; color: #888; font-weight: 500; }
+  .input-value { display: flex; align-items: center; gap: 8px; }
+  .input-num { font-size: 18px; font-weight: 700; color: #fff; width: 50px; text-align: center; }
+  .stepper-btn { width: 30px; height: 30px; background: #252525; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #FF6B35; font-size: 18px; line-height: 1; user-select: none; transition: background 0.2s; }
+  .stepper-btn:active { background: rgba(255,107,53,0.2); }
+  .prompt-box { background: #111; border: 1px solid #2a2a2a; border-radius: 16px; padding: 16px; margin-bottom: 16px; }
+  .prompt-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .prompt-tag { background: rgba(255,107,53,0.15); color: #FF6B35; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .prompt-text { font-size: 12px; color: #888; line-height: 1.6; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .prompt-text span { color: #FF6B35; font-weight: 600; }
+  .review-section { margin-bottom: 16px; }
+  .review-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #444; font-weight: 700; margin-bottom: 8px; }
+  .review-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #1a1a1a; border-radius: 12px; margin-bottom: 6px; }
+  .review-icon { font-size: 18px; color: #FF6B35; width: 24px; text-align: center; }
+  .review-key { font-size: 12px; color: #666; flex: 1; }
+  .review-val { font-size: 13px; font-weight: 700; color: #fff; }
+  .success-center { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 0 24px; text-align: center; }
+  .success-ring { width: 100px; height: 100px; border-radius: 50%; background: rgba(255,107,53,0.15); border: 3px solid #FF6B35; display: flex; align-items: center; justify-content: center; font-size: 44px; margin-bottom: 24px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,107,53,0.3)}50%{box-shadow:0 0 0 16px rgba(255,107,53,0)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .success-title { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 10px; }
+  .success-sub { font-size: 15px; color: #666; line-height: 1.5; margin-bottom: 32px; }
+  .success-badge { display: flex; align-items: center; gap: 10px; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 14px 20px; margin-bottom: 10px; width: 100%; }
+  .badge-icon { font-size: 24px; }
+  .badge-text { font-size: 13px; color: #888; }
+  .badge-text strong { color: #fff; display: block; font-size: 14px; }
+  .bottom-bar { padding: 12px 24px 28px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+  #ob-content .btn-primary { width: 100%; padding: 16px; background: #FF6B35; border: none; border-radius: 16px; color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  #ob-content .btn-primary:active { transform: scale(0.98); background: #e85d2a; }
+  #ob-content .btn-secondary { width: 100%; padding: 12px; background: transparent; border: none; color: #555; font-size: 14px; cursor: pointer; transition: color 0.2s; font-family: inherit; }
+  #ob-content .btn-secondary:hover { color: #888; }
+  .skip-link { position: absolute; top: 8px; right: 20px; font-size: 13px; color: #555; cursor: pointer; z-index: 10; }
+  .skip-link:hover { color: #888; }
+  .info-note { background: rgba(41,128,185,0.1); border: 1px solid rgba(41,128,185,0.3); border-radius: 12px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .info-note i { color: #2980B9; font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+  .info-note-text { font-size: 12px; color: #777; line-height: 1.5; }
+  .nexus-logo-text { font-size: 40px; font-weight: 900; background: linear-gradient(135deg, #FF6B35, #FF8C5A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 6px; }
+  .nexus-logo-sub { font-size: 12px; color: #555; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+  .page-footer { margin-top: 32px; text-align: center; font-size: 12px; color: #555; }
   .page-footer span { color: #FF6B35; }
 </style>
 </head>
 <body>
 
 <div class="page-header">
-  <h1>Workout Hub — UI Mockups</h1>
-  <p>Arquitectura v14.0 · 7 ecrãs · Seleccione um ecrã para navegar</p>
+  <h1>NEXUS — UI Mockups</h1>
+  <p>Arquitectura v15.0 · App Screens + Onboarding · Maio 2026</p>
 </div>
 
-<div class="nav-pills" id="nav-pills"></div>
+<div class="mode-switcher">
+  <button class="mode-btn active" id="mode-app-btn" onclick="setMode('app')">📱 App Screens</button>
+  <button class="mode-btn" id="mode-ob-btn" onclick="setMode('onboarding')">🚀 Onboarding</button>
+</div>
+
+<div class="nav-pills" id="app-nav"></div>
+<div class="nav-pills" id="ob-nav">
+  <button class="pill active" onclick="goToScreen(1)">1. Welcome</button>
+  <button class="pill" onclick="goToScreen(2)">2. Desportos</button>
+  <button class="pill" onclick="goToScreen(3)">3. Objectivos</button>
+  <button class="pill" onclick="goToScreen(4)">4. Nível</button>
+  <button class="pill" onclick="goToScreen(5)">5. Disponibilidade</button>
+  <button class="pill" onclick="goToScreen(6)">6. Equipamento</button>
+  <button class="pill" onclick="goToScreen(7)">7. Saúde</button>
+  <button class="pill" onclick="goToScreen(8)">8. Dispositivos</button>
+  <button class="pill" onclick="goToScreen(9)">9. Dados Corporais</button>
+  <button class="pill" onclick="goToScreen(10)">10. Eventos</button>
+  <button class="pill" onclick="goToScreen(11)">11. Revisão</button>
+  <button class="pill" onclick="goToScreen(12)">12. A Gerar…</button>
+  <button class="pill" onclick="goToScreen(13)">13. Sucesso!</button>
+</div>
 
 <div class="phone-wrap">
   <div class="phone">
     <div class="notch"></div>
-    <div class="status-bar">
+    <div class="phone-status-bar">
       <span class="time">9:41</span>
-      <div class="icons">
-        <i class="ti ti-wifi" style="font-size:15px"></i>
-        <i class="ti ti-battery-2" style="font-size:15px"></i>
+      <div class="icons"><i class="ti ti-wifi" style="font-size:15px"></i><i class="ti ti-battery-2" style="font-size:15px"></i></div>
+    </div>
+
+    <!-- APP -->
+    <div id="app-content">
+      <div class="screen" id="screen-area"></div>
+      <div class="bottom-tab" id="bottom-tab"></div>
+    </div>
+
+    <!-- ONBOARDING -->
+    <div id="ob-content">
+      <div class="ob-screen active" id="ob-screen-1">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;">
+          <div style="width:90px;height:90px;border-radius:28px;background:linear-gradient(135deg,#FF6B35,#c0392b);display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:24px;box-shadow:0 20px 40px rgba(255,107,53,0.3);">⚡</div>
+          <div class="nexus-logo-text">NEXUS</div>
+          <div class="nexus-logo-sub" style="margin-bottom:32px;">The hub for every athlete</div>
+          <p style="font-size:15px;color:#555;text-align:center;line-height:1.6;margin-bottom:48px;">Treina qualquer desporto.<br>Mede o que importa.<br>Evolui com a comunidade.</p>
+          <div style="display:flex;gap:12px;margin-bottom:16px;width:100%;"><button class="btn-primary" style="flex:1;" onclick="goToScreen(2)"><i class="ti ti-sparkles"></i> Começar</button></div>
+          <button class="btn-secondary" onclick="goToScreen(2)">Já tenho conta</button>
+        </div>
+      </div>
+      <div class="ob-screen" id="ob-screen-2">
+        <span class="skip-link" onclick="goToScreen(3)">Saltar</span>
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 1 de 10</span><span class="progress-step">10%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:10%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Que desportos praticas?</div><div class="screen-subtitle">Selecciona todos os que praticas ou queres começar.</div>
+          <div class="options-grid">
+            <div class="option-card sport-gym" onclick="toggleCard(this)"><span class="option-icon">🏋️</span><span class="option-label">Ginásio</span></div>
+            <div class="option-card sport-run" onclick="toggleCard(this)"><span class="option-icon">🏃</span><span class="option-label">Corrida</span></div>
+            <div class="option-card sport-cycle" onclick="toggleCard(this)"><span class="option-icon">🚴</span><span class="option-label">Ciclismo</span></div>
+            <div class="option-card sport-swim" onclick="toggleCard(this)"><span class="option-icon">🏊</span><span class="option-label">Natação</span></div>
+            <div class="option-card sport-row" onclick="toggleCard(this)"><span class="option-icon">🚣</span><span class="option-label">Remo</span></div>
+            <div class="option-card sport-hyrox" onclick="toggleCard(this)"><span class="option-icon">💪</span><span class="option-label">HYROX</span></div>
+            <div class="option-card sport-tri" onclick="toggleCard(this)"><span class="option-icon">🏅</span><span class="option-label">Triatlo</span></div>
+            <div class="option-card sport-walk" onclick="toggleCard(this)"><span class="option-icon">🚶</span><span class="option-label">Caminhada</span></div>
+          </div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(3)">Continuar <i class="ti ti-arrow-right"></i></button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-3">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 2 de 10</span><span class="progress-step">20%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:20%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Qual é o teu principal objectivo?</div><div class="screen-subtitle">Vamos calibrar o programa em torno do que mais importa para ti.</div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🔥</div><div class="goal-text"><div class="goal-title">Perder gordura</div><div class="goal-desc">Reduzir % de gordura corporal mantendo músculo</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">💪</div><div class="goal-text"><div class="goal-title">Ganhar músculo</div><div class="goal-desc">Hipertrofia e força máxima</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🏆</div><div class="goal-text"><div class="goal-title">Melhorar performance</div><div class="goal-desc">Bater recordes pessoais e eventos competitivos</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">❤️</div><div class="goal-text"><div class="goal-title">Saúde &amp; bem-estar</div><div class="goal-desc">Manter-me activo, dormir melhor, reduzir stress</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">⚖️</div><div class="goal-text"><div class="goal-title">Recomposição corporal</div><div class="goal-desc">Perder gordura e ganhar músculo ao mesmo tempo</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(4)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(2)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-4">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 3 de 10</span><span class="progress-step">30%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:30%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Qual é a tua experiência?</div><div class="screen-subtitle">Sem julgamentos — apenas para calibrar a intensidade certa.</div>
+          <div class="level-cards">
+            <div class="level-card" onclick="selectLevel(this)"><div class="level-badge">🌱</div><div class="level-info"><div class="level-name">Iniciante</div><div class="level-desc">Menos de 6 meses de treino consistente</div></div><div class="level-dots"><div class="ob-dot filled"></div><div class="ob-dot"></div><div class="ob-dot"></div><div class="ob-dot"></div></div></div>
+            <div class="level-card" onclick="selectLevel(this)"><div class="level-badge">⚡</div><div class="level-info"><div class="level-name">Intermédio</div><div class="level-desc">6 meses a 3 anos de treino regular</div></div><div class="level-dots"><div class="ob-dot filled"></div><div class="ob-dot filled"></div><div class="ob-dot"></div><div class="ob-dot"></div></div></div>
+            <div class="level-card" onclick="selectLevel(this)"><div class="level-badge">🔥</div><div class="level-info"><div class="level-name">Avançado</div><div class="level-desc">3+ anos, treino estruturado e consistente</div></div><div class="level-dots"><div class="ob-dot filled"></div><div class="ob-dot filled"></div><div class="ob-dot filled"></div><div class="ob-dot"></div></div></div>
+            <div class="level-card" onclick="selectLevel(this)"><div class="level-badge">🏅</div><div class="level-info"><div class="level-name">Atleta Competitivo</div><div class="level-desc">Compito regularmente e treino periodizado</div></div><div class="level-dots"><div class="ob-dot filled"></div><div class="ob-dot filled"></div><div class="ob-dot filled"></div><div class="ob-dot filled"></div></div></div>
+          </div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(5)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(3)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-5">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 4 de 10</span><span class="progress-step">40%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:40%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Quando e quanto tempo treinas?</div><div class="screen-subtitle">Escolhe os dias típicos e a duração por sessão.</div>
+          <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">DIAS DA SEMANA</div>
+          <div class="days-grid"><div class="day-btn" onclick="toggleDay(this)">S</div><div class="day-btn selected" onclick="toggleDay(this)">T</div><div class="day-btn" onclick="toggleDay(this)">Q</div><div class="day-btn selected" onclick="toggleDay(this)">Q</div><div class="day-btn" onclick="toggleDay(this)">S</div><div class="day-btn selected" onclick="toggleDay(this)">S</div><div class="day-btn" onclick="toggleDay(this)">D</div></div>
+          <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">DURAÇÃO POR SESSÃO</div>
+          <div class="duration-row"><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">30'</div><div class="dur-sub">Express</div></div><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">45'</div><div class="dur-sub">Rápido</div></div><div class="dur-btn selected" onclick="selectDur(this)"><div class="dur-main">60'</div><div class="dur-sub">Standard</div></div><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">90'</div><div class="dur-sub">Intenso</div></div></div>
+          <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">PREFERÊNCIA DE HORÁRIO</div>
+          <div class="options-grid three"><div class="option-card selected" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🌅</span><span class="option-label">Manhã</span></div><div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">☀️</span><span class="option-label">Tarde</span></div><div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🌙</span><span class="option-label">Noite</span></div></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(6)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(4)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-6">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 5 de 10</span><span class="progress-step">50%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:50%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Que equipamento tens disponível?</div><div class="screen-subtitle">Para sugerirmos exercícios acessíveis onde quer que estejas.</div>
+          <div class="options-grid">
+            <div class="option-card selected" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🏋️</span><span class="option-label">Ginásio completo</span></div>
+            <div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🏠</span><span class="option-label">Casa / básico</span></div>
+            <div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🏊</span><span class="option-label">Piscina</span></div>
+            <div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🚴</span><span class="option-label">Bicicleta / Bike</span></div>
+            <div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🌳</span><span class="option-label">Exterior</span></div>
+            <div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🤸</span><span class="option-label">Sem equipamento</span></div>
+          </div>
+          <div class="info-note" style="margin-top:12px;"><i class="ti ti-info-circle"></i><span class="info-note-text">Se viajares com frequência, activa múltiplos locais. O NEXUS adapta o programa conforme onde estás.</span></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(7)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(5)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-7">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 6 de 10</span><span class="progress-step">60%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:60%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Alguma condição de saúde a considerar?</div><div class="screen-subtitle">Confidencial. Serve apenas para ajustar exercícios e limites de intensidade.</div>
+          <div class="health-grid">
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🦵</div><div class="health-chip-label">Joelho / Anca</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🫀</div><div class="health-chip-label">Coração / Tensão</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🫁</div><div class="health-chip-label">Asma / Respiração</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🔙</div><div class="health-chip-label">Coluna / Costas</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">⚕️</div><div class="health-chip-label">Cirurgia recente</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🩸</div><div class="health-chip-label">Diabetes</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">🤰</div><div class="health-chip-label">Gravidez / Pós-parto</div></div>
+            <div class="health-chip" onclick="this.classList.toggle('selected')"><div class="health-chip-icon">✅</div><div class="health-chip-label">Nenhuma</div></div>
+          </div>
+          <div class="info-note" style="margin-top:12px;"><i class="ti ti-lock"></i><span class="info-note-text">Esta informação é privada e nunca partilhada com a comunidade ou terceiros.</span></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(8)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(6)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-8">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 7 de 10</span><span class="progress-step">70%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:70%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Que dispositivos usas?</div><div class="screen-subtitle">Vamos importar os teus dados automaticamente. Podes ligar mais tarde.</div>
+          <div class="device-grid">
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">⌚</div><div><div class="device-name">Apple Watch</div><div class="device-type">Smartwatch</div></div></div>
+            <div class="device-chip selected" onclick="this.classList.toggle('selected')"><div class="device-logo">🔴</div><div><div class="device-name">WHOOP</div><div class="device-type">Recovery band</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">🟢</div><div><div class="device-name">Garmin</div><div class="device-type">GPS Watch</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">⚫</div><div><div class="device-name">Oura Ring</div><div class="device-type">Sleep tracker</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">🟠</div><div><div class="device-name">Strava</div><div class="device-type">Activity app</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">🔵</div><div><div class="device-name">Apple Health</div><div class="device-type">Health platform</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">🟡</div><div><div class="device-name">MyFitnessPal</div><div class="device-type">Nutrição</div></div></div>
+            <div class="device-chip" onclick="this.classList.toggle('selected')"><div class="device-logo">⬜</div><div><div class="device-name">Speediance</div><div class="device-type">Smart gym</div></div></div>
+          </div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(9)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(7)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-9">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 8 de 10</span><span class="progress-step">80%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Dados corporais básicos</div><div class="screen-subtitle">Para calcular zonas de FC, TDEE e métricas de desempenho.</div>
+          <div class="options-grid" style="margin-bottom:12px;"><div class="option-card selected" onclick="selectGender(this)" style="--sport-color:#FF6B35;"><span class="option-icon">♂️</span><span class="option-label">Masculino</span></div><div class="option-card" onclick="selectGender(this)" style="--sport-color:#FF6B35;"><span class="option-icon">♀️</span><span class="option-label">Feminino</span></div></div>
+          <div class="input-row"><span class="input-label">Idade</span><div class="input-value"><div class="stepper-btn" onclick="step('age',-1)">−</div><div class="input-num" id="val-age">38</div><div class="stepper-btn" onclick="step('age',1)">+</div></div></div>
+          <div class="input-row"><span class="input-label">Altura (cm)</span><div class="input-value"><div class="stepper-btn" onclick="step('height',-1)">−</div><div class="input-num" id="val-height">178</div><div class="stepper-btn" onclick="step('height',1)">+</div></div></div>
+          <div class="input-row"><span class="input-label">Peso actual (kg)</span><div class="input-value"><div class="stepper-btn" onclick="step('weight',-0.5)">−</div><div class="input-num" id="val-weight">84.5</div><div class="stepper-btn" onclick="step('weight',0.5)">+</div></div></div>
+          <div class="input-row" style="margin-bottom:12px;"><span class="input-label">Peso objectivo (kg)</span><div class="input-value"><div class="stepper-btn" onclick="step('target',-0.5)">−</div><div class="input-num" id="val-target">78.0</div><div class="stepper-btn" onclick="step('target',0.5)">+</div></div></div>
+          <div class="info-note"><i class="ti ti-heart-rate-monitor"></i><span class="info-note-text">FC máx calculada automaticamente (220 − idade). Podes afinar com um teste depois.</span></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(10)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(8)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-10">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 9 de 10</span><span class="progress-step">90%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Tens algum evento próximo?</div><div class="screen-subtitle">Corrida, competição, viagem... O NEXUS periodiza o treino à volta do teu calendário.</div>
+          <div class="goal-card selected" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🏃</div><div class="goal-text"><div class="goal-title">Meia Maratona</div><div class="goal-desc">15 de Setembro · Lisboa</div></div><div class="check-circle" style="border-color:#FF6B35;background:#FF6B35;color:#fff;"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🏋️</div><div class="goal-text"><div class="goal-title">HYROX World Championships</div><div class="goal-desc">Novembro · Nice, France</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🏊</div><div class="goal-text"><div class="goal-title">Triatlo Sprint</div><div class="goal-desc">Outubro · Dubai</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;background:#1a1a1a;border-radius:14px;padding:14px 16px;"><span style="font-size:14px;color:#888;">+ Adicionar evento personalizado</span><i class="ti ti-plus" style="color:#FF6B35;font-size:18px;"></i></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(11)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(9)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-11">
+        <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 10 de 10</span><span class="progress-step">100%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:100%"></div></div></div>
+        <div class="screen-body"><div style="height:16px"></div><div class="screen-title">O teu perfil de atleta ✓</div><div class="screen-subtitle">Confirma e o NEXUS gera o teu programa personalizado com IA.</div>
+          <div class="review-section"><div class="review-title">Perfil</div>
+            <div class="review-item"><i class="ti ti-run review-icon"></i><span class="review-key">Desportos</span><span class="review-val">Ginásio · WHOOP · Corrida</span></div>
+            <div class="review-item"><i class="ti ti-target review-icon"></i><span class="review-key">Objectivo</span><span class="review-val">Perda de gordura</span></div>
+            <div class="review-item"><i class="ti ti-bolt review-icon"></i><span class="review-key">Nível</span><span class="review-val">Intermédio</span></div>
+            <div class="review-item"><i class="ti ti-calendar review-icon"></i><span class="review-key">Disponibilidade</span><span class="review-val">3× por semana · 60 min</span></div>
+            <div class="review-item"><i class="ti ti-heart-rate-monitor review-icon"></i><span class="review-key">FC Máx estimada</span><span class="review-val">182 bpm</span></div>
+          </div>
+          <div class="review-section"><div class="review-title">Prompt de IA gerado</div>
+            <div class="prompt-box"><div class="prompt-header"><span class="prompt-tag">✨ Auto-gerado</span></div><div class="prompt-text">Cria um plano de treino de <span>8 semanas</span> para homem de <span>38 anos</span>, nível intermédio. Objectivo: <span>perda de gordura</span>. Disponibilidade: <span>3× por semana</span>, <span>60 min</span>. Output em JSON NEXUS v1.</div></div>
+          </div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(12)"><i class="ti ti-sparkles"></i> Gerar programa com IA</button><button class="btn-secondary" onclick="goToScreen(10)">← Voltar</button></div>
+      </div>
+      <div class="ob-screen" id="ob-screen-12" style="background:#0F0F0F;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;">
+          <div id="loading-ring" style="width:90px;height:90px;border-radius:50%;border:3px solid #1a1a1a;border-top-color:#FF6B35;animation:spin 1s linear infinite;margin-bottom:32px;"></div>
+          <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;text-align:center;" id="loading-text">A gerar o teu programa...</div>
+          <div style="font-size:14px;color:#555;text-align:center;line-height:1.6;" id="loading-sub">A IA está a calcular periodização, progressão e zonas de treino</div>
+          <div style="margin-top:32px;display:flex;flex-direction:column;gap:8px;width:100%;">
+            <div class="review-item" id="step1" style="opacity:0.3;"><i class="ti ti-check review-icon" style="color:#27AE60;"></i><span class="review-key" style="color:#fff;">Perfil analisado</span></div>
+            <div class="review-item" id="step2" style="opacity:0.3;"><i class="ti ti-loader-2 review-icon" style="animation:spin 1s linear infinite;"></i><span class="review-key" style="color:#fff;">A calcular periodização</span></div>
+            <div class="review-item" id="step3" style="opacity:0.3;"><i class="ti ti-dots review-icon"></i><span class="review-key" style="color:#fff;">A montar sessões de treino</span></div>
+            <div class="review-item" id="step4" style="opacity:0.3;"><i class="ti ti-dots review-icon"></i><span class="review-key" style="color:#fff;">A calibrar zonas de FC</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ob-screen" id="ob-screen-13">
+        <div class="success-center">
+          <div class="success-ring">⚡</div>
+          <div class="success-title">Bem-vindo ao NEXUS!</div>
+          <div class="success-sub">O teu programa de 8 semanas está pronto.<br>Hoje começas o Bloco 1: Base Aeróbica + Força.</div>
+          <div class="success-badge"><div class="badge-icon">🏅</div><div class="badge-text"><strong>Primeira Conquista Desbloqueada!</strong>"Atleta NEXUS" — Bem-vindo à comunidade</div></div>
+          <div class="success-badge"><div class="badge-icon">📅</div><div class="badge-text"><strong>Próxima sessão amanhã às 07:00</strong>Força — Upper Body A · 60 min</div></div>
+          <div class="success-badge"><div class="badge-icon">👥</div><div class="badge-text"><strong>2.847 atletas começaram esta semana</strong>Junta-te aos grupos da tua cidade</div></div>
+        </div>
+        <div class="bottom-bar"><button class="btn-primary" onclick="setMode('app')"><i class="ti ti-home"></i> Ir para o Dashboard</button></div>
       </div>
     </div>
-    <div class="screen" id="screen-area"></div>
-    <div class="bottom-tab" id="bottom-tab"></div>
   </div>
 </div>
 
 <div class="page-footer">
-  <p>Workout Hub · Arquitectura v14.0 · Maio 2026</p>
-  <p style="margin-top:4px">Mockup de referência — <span>uso interno</span></p>
+  <p>NEXUS · Arquitectura v15.0 · Maio 2026</p>
+  <p style="margin-top:4px">Mockup unificado — <span>App Screens + Onboarding</span></p>
 </div>
 
 <script>
-const SCREENS = [
-  { id: 'dashboard',   label: 'Dashboard',    tab: 'inicio' },
-  { id: 'record',      label: 'Registo',       tab: 'fab' },
-  { id: 'stats',       label: 'Stats',         tab: 'stats' },
-  { id: 'programa',    label: 'Programa',      tab: 'programa' },
-  { id: 'perfil',      label: 'Perfil',        tab: 'perfil' },
-  { id: 'integracoes', label: 'Integrações',   tab: 'perfil' },
-  { id: 'bodymetrics', label: 'Body Metrics',  tab: 'stats' },
-];
-
-const TABS_DEF = [
-  { id: 'inicio',   icon: 'ti-home',   label: 'Início',   screen: 'dashboard' },
-  { id: 'stats',    icon: 'ti-chart-bar', label: 'Stats', screen: 'stats' },
-  { id: 'fab',      fab: true },
-  { id: 'programa', icon: 'ti-list',   label: 'Programa', screen: 'programa' },
-  { id: 'perfil',   icon: 'ti-user',   label: 'Perfil',   screen: 'perfil' },
-];
-
-let current = 'dashboard';
-
-function setScreen(id) {
-  current = id;
-  renderNav();
-  renderTabs(SCREENS.find(s => s.id === id).tab);
-  renderScreen(id);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+const SCREENS=[{id:'dashboard',label:'Dashboard',tab:'inicio'},{id:'record',label:'Registo',tab:'fab'},{id:'stats',label:'Stats',tab:'stats'},{id:'programa',label:'Programa',tab:'programa'},{id:'perfil',label:'Perfil',tab:'perfil'},{id:'integracoes',label:'Integrações',tab:'perfil'},{id:'bodymetrics',label:'Body Metrics',tab:'stats'}];
+const TABS_DEF=[{id:'inicio',icon:'ti-home',label:'Início',screen:'dashboard'},{id:'stats',icon:'ti-chart-bar',label:'Stats',screen:'stats'},{id:'fab',fab:true},{id:'programa',icon:'ti-list',label:'Programa',screen:'programa'},{id:'perfil',icon:'ti-user',label:'Perfil',screen:'perfil'}];
+let current='dashboard';
+function setScreen(id){current=id;renderNav();renderTabs(SCREENS.find(s=>s.id===id).tab);renderScreen(id);}
+function renderNav(){document.getElementById('app-nav').innerHTML=SCREENS.map(s=>`<button class="pill ${s.id===current?'active':''}" onclick="setScreen('${s.id}')">${s.label}</button>`).join('');}
+function renderTabs(activeTab){document.getElementById('bottom-tab').innerHTML=TABS_DEF.map(t=>{if(t.fab)return`<div class="tab-item" style="position:relative;width:56px"><div class="fab-btn" onclick="setScreen('record')"><i class="ti ti-plus"></i></div></div>`;const a=t.id===activeTab?'active':'';return`<div class="tab-item ${a}" onclick="setScreen('${t.screen}')"><i class="ti ${t.icon}"></i><span class="tab-label">${t.label}</span></div>`;}).join('');}
+function renderScreen(id){const el=document.getElementById('screen-area');
+if(id==='dashboard'){el.innerHTML=`<div class="screen-hdr row-between"><div class="row" style="gap:12px"><div class="avatar">VF</div><div class="col"><span class="title" style="font-size:15px">Bom dia, Vitor</span><span class="subtitle" style="font-size:12px">Terça, 27 de Maio</span></div></div><div class="row" style="gap:8px"><span class="badge" style="background:#FF6B3520;color:#FF6B35">🔥 12 dias</span><i class="ti ti-bell" style="color:#555;font-size:20px"></i></div></div><div class="scroll-area" style="padding-top:12px"><div class="card" style="border:1px solid #27AE6040;background:linear-gradient(135deg,#152A1E,#1A1A1A)"><div class="row-between"><div class="col" style="gap:6px"><span class="label">Readiness hoje</span><div class="row" style="align-items:baseline;gap:8px"><span class="hero" style="color:#27AE60">81</span><span class="metric-unit">/ 100</span><span class="badge" style="background:#27AE6020;color:#27AE60">↑ +4 vs ontem</span></div><span class="subtitle">Boa recuperação · HRV 58ms · Sono 7h12</span></div><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#1E2E1E" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="#27AE60" stroke-width="6" stroke-dasharray="127 30" stroke-dashoffset="32" stroke-linecap="round"/><text x="30" y="35" text-anchor="middle" font-size="14" font-weight="700" fill="#27AE60" font-family="-apple-system,sans-serif">81</text></svg></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 14px;margin-bottom:12px">${[{l:'Calorias',v:'487',u:'kcal'},{l:'Passos',v:'6.2k',u:'/ 10k'},{l:'Activo',v:'38',u:'min'}].map(m=>`<div class="card-sm" style="text-align:center"><div class="label">${m.l}</div><div style="font-size:20px;font-weight:700;color:#fff;margin:4px 0">${m.v}</div><div class="metric-unit">${m.u}</div></div>`).join('')}</div><div class="section-hdr"><span class="title" style="font-size:14px">Próximo treino</span><span class="subtitle" style="font-size:12px">Hoje</span></div><div class="card" style="border-left:3px solid #FF6B35;cursor:pointer" onclick="setScreen('record')"><div class="row-between"><div class="col" style="gap:5px"><div class="row" style="gap:6px"><span class="dot" style="background:#FF6B35"></span><span class="label">Ginásio · PPL semana 4</span></div><span class="title">Upper Body — Push A</span><span class="subtitle">Peito · Ombros · Tricep · ~45 min</span><div class="row" style="gap:6px;margin-top:2px"><span class="badge" style="background:#2E2E2E;color:#999">4 exercícios</span><span class="badge" style="background:#2E2E2E;color:#999">14 sets</span></div></div><button class="btn-primary" style="padding:10px 16px;font-size:13px">Iniciar</button></div></div><div class="section-hdr"><span class="title" style="font-size:14px">Fitness · Fadiga · Forma</span><span class="subtitle" style="font-size:12px;color:#FF6B35">Ver tudo →</span></div><div class="card"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;gap:8px;margin-bottom:12px"><div><div class="label">CTL (Fitness)</div><div style="font-size:22px;font-weight:700;color:#2980B9;margin-top:3px">68</div></div><div><div class="label">ATL (Fadiga)</div><div style="font-size:22px;font-weight:700;color:#E67E22;margin-top:3px">72</div></div><div><div class="label">TSB (Forma)</div><div style="font-size:22px;font-weight:700;color:#E74C3C;margin-top:3px">−4</div></div></div><svg width="100%" height="50" viewBox="0 0 320 50" preserveAspectRatio="none"><polyline points="0,38 40,34 80,30 120,26 160,24 200,22 240,20 280,19 320,18" fill="none" stroke="#2980B9" stroke-width="2"/><polyline points="0,20 40,24 80,30 120,35 160,38 200,40 240,36 280,32 320,30" fill="none" stroke="#E67E22" stroke-width="2"/></svg><div class="row" style="gap:16px;justify-content:center;margin-top:4px"><span style="font-size:11px;color:#2980B9">● CTL</span><span style="font-size:11px;color:#E67E22">● ATL</span></div></div><div class="section-hdr"><span class="title" style="font-size:14px">Actividade recente</span><span class="subtitle" style="font-size:12px;color:#FF6B35">Ver histórico →</span></div>${[{sport:'Corrida leve',sub:'5.2 km · 28:14 · Z2 dominante',icon:'ti-run',color:'#27AE60',day:'Seg'},{sport:'Lower Body — Squat',sub:'8 exercícios · 52 min · 🏆 PR Squat',icon:'ti-barbell',color:'#FF6B35',day:'Dom'},{sport:'Ciclismo indoor',sub:'45 min · FTP 218W · 35.1 km',icon:'ti-bike',color:'#E67E22',day:'Sáb'}].map(a=>`<div class="int-row"><div class="int-icon" style="background:${a.color}20"><i class="ti ${a.icon}" style="color:${a.color}"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${a.sport}</span><span class="subtitle">${a.sub}</span></div><span class="subtitle" style="font-size:11px">${a.day}</span></div><div class="divider"></div>`).join('')}<div style="height:16px"></div></div>`;}
+else if(id==='record'){el.innerHTML=`<div class="screen-hdr" style="background:#0A0A0A"><div class="row-between"><div class="col"><div class="row" style="gap:6px"><span class="dot" style="background:#FF6B35"></span><span class="label">Ginásio · Push A · Superset 1/3</span></div><span class="title" style="font-size:15px;margin-top:2px">Bench Press + Cable Fly</span></div><div class="col" style="align-items:flex-end"><span class="label">Duração</span><span style="font-size:18px;font-weight:700;color:#FF6B35">24:38</span></div></div><div style="display:flex;gap:4px;margin-top:10px">${['Bench Press','Cable Fly','OHP'].map((e,i)=>`<div style="flex:1;height:3px;border-radius:2px;background:${i<2?'#FF6B35':'#2E2E2E'}"></div>`).join('')}</div></div><div style="background:#111;padding:14px 18px;flex-shrink:0"><div class="row-between" style="margin-bottom:10px"><span class="title" style="font-size:17px">Bench Press</span><span class="badge" style="background:#FF6B3520;color:#FF6B35">PR: 102.5kg×3</span></div><div style="background:#1A1A1A;border-radius:14px;height:90px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;border:1px dashed #2E2E2E"><div style="text-align:center"><i class="ti ti-player-play" style="font-size:28px;color:#333"></i><div style="font-size:11px;color:#444;margin-top:4px">Animação de execução</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px"><div><div class="label" style="text-align:center;margin-bottom:4px">Peso (kg)</div><div class="input-box active">90</div></div><div><div class="label" style="text-align:center;margin-bottom:4px">Reps</div><div class="input-box active">8</div></div><div><div class="label" style="text-align:center;margin-bottom:4px">RIR</div><div class="input-box">2</div></div></div></div><div class="scroll-area" style="padding:12px 18px"><span class="label" style="margin-bottom:10px;display:block">Sets — progresso</span>${[{n:1,kg:85,reps:8,rir:2,state:'done'},{n:2,kg:90,reps:8,rir:2,state:'done'},{n:3,kg:90,reps:8,rir:2,state:'active'},{n:4,kg:90,reps:6,rir:3,state:'pending'}].map(s=>`<div class="set-row"><div class="set-num ${s.state}">${s.state==='done'?'✓':s.n}</div><span style="flex:1;font-size:13px;color:${s.state==='done'?'#666':s.state==='active'?'#fff':'#888'}">${s.kg} kg × ${s.reps} reps</span><span class="label">RIR ${s.rir}</span>${s.state==='done'?'<i class="ti ti-check" style="color:#27AE60;font-size:16px"></i>':''}</div>`).join('')}<div style="margin-top:12px;padding:10px;border:1px dashed #2E2E2E;border-radius:10px;text-align:center;cursor:pointer"><span class="subtitle">+ Adicionar set</span></div></div><div style="padding:12px 18px 8px;background:#0A0A0A;border-top:1px solid #1E1E1E;flex-shrink:0"><div class="row-between"><div style="background:#1A1A1A;border-radius:12px;padding:10px 16px;text-align:center;cursor:pointer"><div class="label">Descanso</div><div style="font-size:20px;font-weight:700;color:#FF6B35;margin-top:2px">01:30</div><div style="font-size:10px;color:#555">−30s / +30s</div></div><button class="btn-primary" style="flex:1;margin-left:12px">Registar set →</button></div></div>`;}
+else if(id==='stats'){el.innerHTML=`<div class="screen-hdr"><span class="title">Stats &amp; Analytics</span></div><div style="display:flex;border-bottom:1px solid #1E1E1E;padding:0 10px;flex-shrink:0;overflow-x:auto;scrollbar-width:none">${['Visão Geral','Ginásio','Cardio','Body','Wellness','Nutrição'].map((t,i)=>`<div style="padding:11px 12px;font-size:12px;color:${i===0?'#FF6B35':'#555'};border-bottom:${i===0?'2px solid #FF6B35':'2px solid transparent'};white-space:nowrap;cursor:pointer;font-weight:${i===0?600:400}">${t}</div>`).join('')}</div><div class="scroll-area" style="padding-top:12px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px;margin-bottom:12px">${[{l:'Volume semanal',v:'8h 42m',sub:'↑ 12% vs semana anterior',sc:'#27AE60'},{l:'CTL (Fitness)',v:'68',sub:'ATL: 72 · Forma: −4',sc:'#E67E22'},{l:'Sessões / mês',v:'18',sub:'Objectivo: 20 ✓ a caminho',sc:'#27AE60'},{l:'Streak',v:'12 dias',sub:'Melhor: 28 dias',sc:'#FF6B35'}].map(m=>`<div class="card" style="margin:0"><div class="label">${m.l}</div><div style="font-size:20px;font-weight:700;color:#fff;margin:5px 0">${m.v}</div><span style="font-size:11px;color:${m.sc}">${m.sub}</span></div>`).join('')}</div><div class="section-hdr"><span class="title" style="font-size:14px">Zonas FC — última corrida</span></div><div class="card"><div style="display:flex;border-radius:8px;overflow:hidden;height:24px;margin-bottom:10px">${[{z:'Z1',p:15,c:'#4A4A4A'},{z:'Z2',p:48,c:'#2980B9'},{z:'Z3',p:20,c:'#27AE60'},{z:'Z4',p:12,c:'#E67E22'},{z:'Z5',p:5,c:'#E74C3C'}].map(z=>`<div class="zone-seg" style="width:${z.p}%;background:${z.c}">${z.p>8?z.z:''}</div>`).join('')}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">${[{z:'Z1 — Fácil',p:15,t:'14 min',c:'#4A4A4A'},{z:'Z2 — Base',p:48,t:'46 min',c:'#2980B9'},{z:'Z3 — Tempo',p:20,t:'19 min',c:'#27AE60'},{z:'Z4 — Limiar',p:12,t:'11 min',c:'#E67E22'},{z:'Z5 — Máximo',p:5,t:'5 min',c:'#E74C3C'}].map(z=>`<div style="font-size:11px;padding:3px 0"><span style="color:${z.c}">●</span><span style="color:#888"> ${z.z}</span><span style="color:#fff;font-weight:600;float:right">${z.p}% · ${z.t}</span></div>`).join('')}</div></div><div class="card" style="border-left:3px solid #8E44AD;margin-bottom:16px"><div class="label" style="color:#8E44AD;margin-bottom:6px">💡 Correlação AI · 8 semanas de dados</div><span class="title" style="font-size:13px;line-height:1.6;font-weight:400;color:#ccc">Quando o teu HRV está acima de <strong style="color:#fff">55ms</strong>, o teu pace de corrida é <strong style="color:#27AE60">8% mais rápido</strong> em média.</span></div></div>`;}
+else if(id==='programa'){el.innerHTML=`<div class="screen-hdr row-between"><span class="title">Programa</span><button class="btn-secondary" style="padding:7px 14px;font-size:12px">+ Novo</button></div><div class="scroll-area" style="padding-top:12px"><div class="section-hdr"><span class="title" style="font-size:14px">Programa activo</span></div><div class="card" style="border:1px solid #FF6B3330"><div class="row-between" style="margin-bottom:10px"><div class="col"><span class="title">PPL — Força Geral</span><span class="subtitle">Semana 4 de 12 · 3 dias/semana</span></div><span class="badge" style="background:#27AE6020;color:#27AE60">87% aderência</span></div><div class="pbar-track" style="margin-bottom:10px"><div class="pbar-fill" style="width:33%;background:#FF6B35"></div></div><div class="row-between">${['S','T','Q','Q','S','S','D'].map((d,i)=>{const f=[0,2,4].includes(i);const t=i===1;return`<div style="width:34px;height:34px;border-radius:9px;background:${t?'#FF6B35':f?'#FF6B3520':'#1E1E1E'};border:${t?'none':f?'1px solid #FF6B3540':'none'};display:flex;align-items:center;justify-content:center;font-size:10px;color:${t?'#fff':f?'#FF6B35':'#444'};font-weight:${t?700:400}">${d}</div>`;}).join('')}</div></div><div class="section-hdr"><span class="title" style="font-size:14px">Hoje — Upper Push A</span></div>${[{name:'Bench Press',sub:'4 × 8 reps · 90 kg estimado',sets:4},{name:'Overhead Press',sub:'3 × 10 reps · 55 kg estimado',sets:3},{name:'Incline DB Press',sub:'3 × 12 reps · 26 kg',sets:3},{name:'Cable Fly',sub:'3 × 15 reps · 15 kg',sets:3},{name:'Tricep Pushdown',sub:'3 × 15 reps · 35 kg',sets:3}].map(e=>`<div class="int-row"><div class="int-icon" style="background:#FF6B3520"><i class="ti ti-barbell" style="color:#FF6B35"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${e.name}</span><span class="subtitle">${e.sub}</span></div><span class="badge" style="background:#1E1E1E;color:#666">${e.sets} sets</span></div><div class="divider"></div>`).join('')}<div style="padding:14px 18px 4px"><button class="btn-primary" style="width:100%">Iniciar treino →</button></div><div class="section-hdr"><span class="title" style="font-size:14px">Records pessoais activos</span></div><div class="card" style="margin-bottom:16px">${[{ex:'Bench Press',v:'102.5 kg',when:'há 2 sem'},{ex:'Squat',v:'145 kg',when:'há 1 mês'},{ex:'Deadlift',v:'180 kg',when:'há 3 sem'},{ex:'Corrida 5km',v:'23:41',when:'há 3 sem'}].map(r=>`<div class="row-between" style="padding:8px 0;border-bottom:1px solid #1E1E1E"><span class="subtitle">${r.ex}</span><div class="col" style="align-items:flex-end"><span style="font-size:14px;font-weight:700;color:#27AE60">${r.v}</span><span class="label" style="font-size:10px">${r.when}</span></div></div>`).join('')}</div></div>`;}
+else if(id==='perfil'){el.innerHTML=`<div class="screen-hdr"><span class="title">Perfil</span></div><div class="scroll-area"><div style="padding:20px 18px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #1E1E1E"><div class="avatar" style="width:64px;height:64px;font-size:22px;border-radius:32px">VF</div><div class="col"><span class="title" style="font-size:17px">Vitor Ferreira</span><span class="subtitle">vitor.ms.ferreira@hotmail.com</span><div class="row" style="gap:6px;margin-top:6px"><span class="badge" style="background:#FF6B3520;color:#FF6B35">⚡ Premium</span><span class="badge" style="background:#27AE6020;color:#27AE60">Coach</span></div></div></div>${[{icon:'ti-heartbeat',label:'Zonas Cardíacas',sub:'FCmáx 182 · 5 zonas configuradas',color:'#E74C3C'},{icon:'ti-target',label:'Objectivos',sub:'Força · Composição · Peso alvo 82 kg',color:'#FF6B35'},{icon:'ti-activity',label:'Perfil de Saúde',sub:'Bypass gástrico · 2 condições activas',color:'#E67E22'},{icon:'ti-plug',label:'Integrações',sub:'5 activas — WHOOP, Garmin, Withings…',color:'#27AE60',screen:'integracoes'},{icon:'ti-book',label:'Knowledge Hub',sub:'Glossário, guias, benchmarks por desporto',color:'#2980B9'},{icon:'ti-pill',label:'Suplementos',sub:'4 activos · Aderência 91%',color:'#8E44AD'},{icon:'ti-scale',label:'Body Metrics',sub:'Último check-in há 3 dias',color:'#16A085',screen:'bodymetrics'},{icon:'ti-settings',label:'Preferências',sub:'Unidades kg · Tema auto · Notificações',color:'#666'},{icon:'ti-users',label:'Os meus atletas',sub:'3 atletas activos — Coach Mode',color:'#FF6B35'}].map(r=>`<div class="int-row" style="cursor:pointer" onclick="${r.screen?`setScreen('${r.screen}')`:''}" ><div class="int-icon" style="background:${r.color}20"><i class="ti ${r.icon}" style="color:${r.color}"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${r.label}</span><span class="subtitle">${r.sub}</span></div><i class="ti ti-chevron-right" style="color:#444;font-size:18px"></i></div><div class="divider"></div>`).join('')}<div style="height:20px"></div></div>`;}
+else if(id==='integracoes'){el.innerHTML=`<div class="screen-hdr row-between"><div class="col"><span class="title">Hub de Integrações</span><span class="subtitle">5 ligadas · última sync há 2 min</span></div></div><div class="scroll-area" style="padding-top:12px"><div class="card" style="border:1px solid #27AE6040;background:#101E14;margin-bottom:12px"><div class="label" style="color:#27AE60;margin-bottom:10px">Meta-layer — cobre 80% dos dispositivos automaticamente</div>${[{name:'Apple Health',sub:'Sincronizado há 2 min',connected:true,color:'#E74C3C',icon:'ti-heart-rate-monitor'},{name:'Google Health',sub:'Não configurado',connected:false,color:'#27AE60',icon:'ti-activity'}].map(i=>`<div class="row-between" style="padding:8px 0;border-bottom:1px solid #152A1E"><div class="row" style="gap:10px"><div class="int-icon" style="width:34px;height:34px;background:${i.color}20"><i class="ti ${i.icon}" style="color:${i.color};font-size:17px"></i></div><div class="col"><span class="title" style="font-size:13px">${i.name}</span><span class="subtitle" style="font-size:11px">${i.sub}</span></div></div><div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#2E2E2E'};color:${i.connected?'#27AE60':'#777'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div></div>`).join('')}</div><div class="section-hdr"><span class="title" style="font-size:14px">Wearables</span></div>${[{name:'WHOOP 4.0',sub:'HRV · Recovery · Sono · FC',connected:true,color:'#E74C3C',icon:'ti-device-watch'},{name:'Garmin Forerunner',sub:'GPS · FC · VO2max · Carga',connected:true,color:'#16A085',icon:'ti-device-watch'},{name:'Oura Ring 4',sub:'HRV · Sono · Temperatura',connected:false,color:'#8E44AD',icon:'ti-circle'},{name:'Polar H10',sub:'FC chest strap — alta precisão',connected:false,color:'#E74C3C',icon:'ti-activity'}].map(i=>`<div class="int-row"><div class="int-icon" style="background:${i.color}20"><i class="ti ${i.icon}" style="color:${i.color}"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${i.name}</span><span class="subtitle">${i.sub}</span></div><div class="row" style="gap:6px"><div class="status-dot" style="background:${i.connected?'#27AE60':'#333'}"></div><div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div></div></div><div class="divider"></div>`).join('')}<div class="section-hdr"><span class="title" style="font-size:14px">Nutrição &amp; Peso</span></div>${[{name:'MyFitnessPal',sub:'Calorias · Proteína · Macros',connected:true,color:'#27AE60',icon:'ti-salad'},{name:'Withings Body+',sub:'Peso · % Gordura · % Músculo',connected:true,color:'#2980B9',icon:'ti-scale'},{name:'Cronometer',sub:'Micronutrientes detalhados',connected:false,color:'#E67E22',icon:'ti-apple'}].map(i=>`<div class="int-row"><div class="int-icon" style="background:${i.color}20"><i class="ti ${i.icon}" style="color:${i.color}"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${i.name}</span><span class="subtitle">${i.sub}</span></div><div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div></div><div class="divider"></div>`).join('')}<div class="section-hdr"><span class="title" style="font-size:14px">Desporto &amp; Treino</span></div>${[{name:'Strava',sub:'Actividades GPS · Segmentos',connected:true,color:'#E67E22',icon:'ti-run'},{name:'TrainingPeaks',sub:'Planos estruturados · TSS',connected:false,color:'#2980B9',icon:'ti-chart-line'},{name:'Concept2',sub:'Ergómetro de remo · Histórico',connected:false,color:'#C0392B',icon:'ti-ripple'}].map(i=>`<div class="int-row"><div class="int-icon" style="background:${i.color}20"><i class="ti ${i.icon}" style="color:${i.color}"></i></div><div class="col" style="flex:1"><span class="title" style="font-size:13px">${i.name}</span><span class="subtitle">${i.sub}</span></div><div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div></div><div class="divider"></div>`).join('')}<div style="height:16px"></div></div>`;}
+else if(id==='bodymetrics'){el.innerHTML=`<div class="screen-hdr row-between"><div class="col"><span class="title">Body Metrics</span><span class="subtitle">Último check-in: há 3 dias (24 Mai)</span></div><button class="btn-secondary" style="font-size:12px;padding:7px 14px">Check-in</button></div><div class="scroll-area" style="padding-top:12px"><div class="card" style="border:1px solid #2980B940"><div class="label" style="color:#2980B9;margin-bottom:10px">Composição corporal</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${[{l:'Peso',v:'87.4 kg',d:'↓ 0.3 kg',dc:'#27AE60'},{l:'Gordura',v:'19.2%',d:'↓ 0.4%',dc:'#27AE60'},{l:'Músculo',v:'43.8%',d:'↑ 0.2%',dc:'#27AE60'},{l:'IMC',v:'24.1',d:'Normal',dc:'#27AE60'}].map(m=>`<div class="card-sm" style="text-align:center"><div class="label">${m.l}</div><div style="font-size:20px;font-weight:700;color:#fff;margin:5px 0">${m.v}</div><span style="font-size:11px;color:${m.dc};font-weight:600">${m.d}</span></div>`).join('')}</div></div><div class="section-hdr"><span class="title" style="font-size:14px">Evolução — 3 meses</span></div><div class="card"><svg width="100%" height="70" viewBox="0 0 300 70"><defs><linearGradient id="wGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2980B9" stop-opacity="0.3"/><stop offset="100%" stop-color="#2980B9" stop-opacity="0"/></linearGradient></defs><polygon points="0,58 37,55 75,52 112,48 150,44 187,41 225,38 262,34 300,30 300,70 0,70" fill="url(#wGrad)"/><polyline points="0,58 37,55 75,52 112,48 150,44 187,41 225,38 262,34 300,30" fill="none" stroke="#2980B9" stroke-width="2.5" stroke-linecap="round"/><circle cx="300" cy="30" r="5" fill="#2980B9"/></svg><div class="row-between" style="margin-top:4px"><div class="col"><span class="label">Mar 2026</span><span class="subtitle" style="font-weight:600;color:#fff">91.2 kg</span></div><div class="col" style="align-items:flex-end"><span class="label">Mai 2026</span><span style="font-size:15px;font-weight:700;color:#27AE60">87.4 kg ↓ 3.8</span></div></div></div><div class="section-hdr"><span class="title" style="font-size:14px">Fotos de progresso</span></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 14px;margin-bottom:16px">${[{l:'Frente',done:true},{l:'Costas',done:false},{l:'Lateral',done:false}].map(f=>`<div style="background:#1A1A1A;border-radius:12px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:${f.done?'1px solid #2980B9':'1px dashed #2E2E2E'};cursor:pointer"><i class="ti ${f.done?'ti-check':'ti-camera'}" style="color:${f.done?'#2980B9':'#444'};font-size:20px"></i><span style="font-size:11px;color:${f.done?'#2980B9':'#555'}">${f.l}</span></div>`).join('')}</div></div>`;}
 }
 
-function renderNav() {
-  document.getElementById('nav-pills').innerHTML = SCREENS.map(s =>
-    `<button class="pill ${s.id === current ? 'active' : ''}" onclick="setScreen('${s.id}')">${s.label}</button>`
-  ).join('');
-}
+// ONBOARDING
+let currentObScreen=1;
+const stepValues={age:38,height:178,weight:84.5,target:78.0};
+function goToScreen(n){document.getElementById('ob-screen-'+currentObScreen).classList.remove('active');document.getElementById('ob-screen-'+n).classList.add('active');currentObScreen=n;updateObPills();if(n===12)startLoading();}
+function updateObPills(){document.querySelectorAll('#ob-nav .pill').forEach((p,i)=>{p.classList.toggle('active',i+1===currentObScreen);});}
+function toggleCard(el){el.classList.toggle('selected');}
+function toggleGoal(el){el.classList.toggle('selected');}
+function selectLevel(el){document.querySelectorAll('.level-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
+function selectDur(el){document.querySelectorAll('.dur-btn').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
+function toggleDay(el){el.classList.toggle('selected');}
+function selectGender(el){document.querySelectorAll('#ob-screen-9 .option-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
+function step(key,delta){stepValues[key]=Math.round((stepValues[key]+delta)*10)/10;const el=document.getElementById('val-'+key);if(el)el.textContent=stepValues[key];}
+function startLoading(){const steps=['step1','step2','step3','step4'];const texts=[['A gerar o teu programa...','A IA está a calcular periodização, progressão e zonas de treino'],['A calibrar zonas de FC...','FC Máx: 182 bpm · Zona 2: 127–145 bpm · Zona 5: >164 bpm'],['A montar as sessões...','Semana 1–4: Bloco Base · Semana 5–8: Bloco Intensidade'],['Quase pronto!','A preparar o teu primeiro treino para amanhã']];steps.forEach(s=>{document.getElementById(s).style.opacity='0.3';});let i=0;const interval=setInterval(()=>{if(i<steps.length){document.getElementById(steps[i]).style.opacity='1';document.getElementById('loading-text').textContent=texts[i][0];document.getElementById('loading-sub').textContent=texts[i][1];i++;}else{clearInterval(interval);setTimeout(()=>goToScreen(13),600);}},800);}
 
-function renderTabs(activeTab) {
-  document.getElementById('bottom-tab').innerHTML = TABS_DEF.map(t => {
-    if (t.fab) return `<div class="tab-item" style="position:relative;width:56px"><div class="fab-btn" onclick="setScreen('record')"><i class="ti ti-plus"></i></div></div>`;
-    const active = t.id === activeTab ? 'active' : '';
-    return `<div class="tab-item ${active}" onclick="setScreen('${t.screen}')"><i class="ti ${t.icon}"></i><span class="tab-label">${t.label}</span></div>`;
-  }).join('');
-}
+// MODE SWITCHER
+function setMode(mode){const ac=document.getElementById('app-content');const oc=document.getElementById('ob-content');const an=document.getElementById('app-nav');const on=document.getElementById('ob-nav');const ab=document.getElementById('mode-app-btn');const ob=document.getElementById('mode-ob-btn');if(mode==='app'){ac.style.display='flex';oc.classList.remove('visible');an.style.display='flex';on.style.display='none';ab.classList.add('active');ob.classList.remove('active');}else{ac.style.display='none';oc.classList.add('visible');an.style.display='none';on.style.display='flex';ab.classList.remove('active');ob.classList.add('active');}}
 
-function miniBar(pct, color) {
-  return `<div class="pbar-track" style="flex:1"><div class="pbar-fill" style="width:${pct}%;background:${color}"></div></div>`;
-}
-
-function renderScreen(id) {
-  const el = document.getElementById('screen-area');
-
-  /* ─── DASHBOARD ─── */
-  if (id === 'dashboard') {
-    el.innerHTML = `
-      <div class="screen-hdr row-between">
-        <div class="row" style="gap:12px">
-          <div class="avatar">VF</div>
-          <div class="col">
-            <span class="title" style="font-size:15px">Bom dia, Vitor</span>
-            <span class="subtitle" style="font-size:12px">Terça, 27 de Maio</span>
-          </div>
-        </div>
-        <div class="row" style="gap:8px">
-          <span class="badge" style="background:#FF6B3520;color:#FF6B35">🔥 12 dias</span>
-          <i class="ti ti-bell" style="color:#555;font-size:20px"></i>
-        </div>
-      </div>
-
-      <div class="scroll-area" style="padding-top:12px">
-
-        <!-- Readiness -->
-        <div class="card" style="border:1px solid #27AE6040;background:linear-gradient(135deg,#152A1E,#1A1A1A)">
-          <div class="row-between">
-            <div class="col" style="gap:6px">
-              <span class="label">Readiness hoje</span>
-              <div class="row" style="align-items:baseline;gap:8px">
-                <span class="hero" style="color:#27AE60">81</span>
-                <span class="metric-unit">/ 100</span>
-                <span class="badge" style="background:#27AE6020;color:#27AE60">↑ +4 vs ontem</span>
-              </div>
-              <span class="subtitle">Boa recuperação · HRV 58ms · Sono 7h12</span>
-            </div>
-            <svg width="60" height="60" viewBox="0 0 60 60">
-              <circle cx="30" cy="30" r="25" fill="none" stroke="#1E2E1E" stroke-width="6"/>
-              <circle cx="30" cy="30" r="25" fill="none" stroke="#27AE60" stroke-width="6"
-                stroke-dasharray="127 30" stroke-dashoffset="32" stroke-linecap="round"/>
-              <text x="30" y="35" text-anchor="middle" font-size="14" font-weight="700"
-                fill="#27AE60" font-family="-apple-system,sans-serif">81</text>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Métricas do dia -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 14px;margin-bottom:12px">
-          ${[
-            { l:'Calorias', v:'487', u:'kcal', c:'#E67E22' },
-            { l:'Passos',   v:'6.2k', u:'/ 10k', c:'#2980B9' },
-            { l:'Activo',   v:'38',  u:'min',  c:'#27AE60' },
-          ].map(m => `
-            <div class="card-sm" style="text-align:center">
-              <div class="label">${m.l}</div>
-              <div style="font-size:20px;font-weight:700;color:#fff;margin:4px 0">${m.v}</div>
-              <div class="metric-unit">${m.u}</div>
-            </div>`).join('')}
-        </div>
-
-        <!-- Próximo treino -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Próximo treino</span>
-          <span class="subtitle" style="font-size:12px">Hoje</span>
-        </div>
-        <div class="card" style="border-left:3px solid #FF6B35;cursor:pointer" onclick="setScreen('record')">
-          <div class="row-between">
-            <div class="col" style="gap:5px">
-              <div class="row" style="gap:6px">
-                <span class="dot" style="background:#FF6B35"></span>
-                <span class="label">Ginásio · PPL semana 4</span>
-              </div>
-              <span class="title">Upper Body — Push A</span>
-              <span class="subtitle">Peito · Ombros · Tricep · ~45 min</span>
-              <div class="row" style="gap:6px;margin-top:2px">
-                <span class="badge" style="background:#2E2E2E;color:#999">4 exercícios</span>
-                <span class="badge" style="background:#2E2E2E;color:#999">14 sets</span>
-              </div>
-            </div>
-            <button class="btn-primary" style="padding:10px 16px;font-size:13px" onclick="setScreen('record')">Iniciar</button>
-          </div>
-        </div>
-
-        <!-- CTL/ATL widget -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Fitness · Fadiga · Forma</span>
-          <span class="subtitle" style="font-size:12px;color:#FF6B35">Ver tudo →</span>
-        </div>
-        <div class="card">
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;gap:8px;margin-bottom:12px">
-            <div><div class="label">CTL (Fitness)</div><div style="font-size:22px;font-weight:700;color:#2980B9;margin-top:3px">68</div></div>
-            <div><div class="label">ATL (Fadiga)</div><div style="font-size:22px;font-weight:700;color:#E67E22;margin-top:3px">72</div></div>
-            <div><div class="label">TSB (Forma)</div><div style="font-size:22px;font-weight:700;color:#E74C3C;margin-top:3px">−4</div></div>
-          </div>
-          <svg width="100%" height="50" viewBox="0 0 320 50" preserveAspectRatio="none">
-            <polyline points="0,38 40,34 80,30 120,26 160,24 200,22 240,20 280,19 320,18"
-              fill="none" stroke="#2980B9" stroke-width="2" opacity="0.9"/>
-            <polyline points="0,20 40,24 80,30 120,35 160,38 200,40 240,36 280,32 320,30"
-              fill="none" stroke="#E67E22" stroke-width="2" opacity="0.9"/>
-          </svg>
-          <div class="row" style="gap:16px;justify-content:center;margin-top:4px">
-            <span style="font-size:11px;color:#2980B9">● CTL</span>
-            <span style="font-size:11px;color:#E67E22">● ATL</span>
-          </div>
-        </div>
-
-        <!-- Actividade recente -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Actividade recente</span>
-          <span class="subtitle" style="font-size:12px;color:#FF6B35">Ver histórico →</span>
-        </div>
-        ${[
-          { sport:'Corrida leve', sub:'5.2 km · 28:14 · Z2 dominante', icon:'ti-run', color:'#27AE60', day:'Seg' },
-          { sport:'Lower Body — Squat', sub:'8 exercícios · 52 min · 🏆 PR Squat', icon:'ti-barbell', color:'#FF6B35', day:'Dom' },
-          { sport:'Ciclismo indoor', sub:'45 min · FTP 218W · 35.1 km', icon:'ti-bike', color:'#E67E22', day:'Sáb' },
-        ].map(a => `
-          <div class="int-row">
-            <div class="int-icon" style="background:${a.color}20">
-              <i class="ti ${a.icon}" style="color:${a.color}"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${a.sport}</span>
-              <span class="subtitle">${a.sub}</span>
-            </div>
-            <span class="subtitle" style="font-size:11px">${a.day}</span>
-          </div>
-          <div class="divider"></div>
-        `).join('')}
-        <div style="height:16px"></div>
-      </div>`;
-  }
-
-  /* ─── REGISTO DE SESSÃO ─── */
-  else if (id === 'record') {
-    el.innerHTML = `
-      <div class="screen-hdr" style="background:#0A0A0A">
-        <div class="row-between">
-          <div class="col">
-            <div class="row" style="gap:6px">
-              <span class="dot" style="background:#FF6B35"></span>
-              <span class="label">Ginásio · Push A · Superset 1/3</span>
-            </div>
-            <span class="title" style="font-size:15px;margin-top:2px">Bench Press + Cable Fly</span>
-          </div>
-          <div class="col" style="align-items:flex-end">
-            <span class="label">Duração</span>
-            <span style="font-size:18px;font-weight:700;color:#FF6B35">24:38</span>
-          </div>
-        </div>
-        <!-- Progress steps -->
-        <div style="display:flex;gap:4px;margin-top:10px">
-          ${['Bench Press','Cable Fly','OHP'].map((e,i) =>
-            `<div style="flex:1;height:3px;border-radius:2px;background:${i<2?'#FF6B35':'#2E2E2E'}"></div>`
-          ).join('')}
-        </div>
-      </div>
-
-      <!-- Exercise info -->
-      <div style="background:#111;padding:14px 18px;flex-shrink:0">
-        <div class="row-between" style="margin-bottom:10px">
-          <span class="title" style="font-size:17px">Bench Press</span>
-          <span class="badge" style="background:#FF6B3520;color:#FF6B35">PR: 102.5kg×3</span>
-        </div>
-        <!-- GIF placeholder -->
-        <div style="background:#1A1A1A;border-radius:14px;height:90px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;border:1px dashed #2E2E2E">
-          <div style="text-align:center">
-            <i class="ti ti-player-play" style="font-size:28px;color:#333"></i>
-            <div style="font-size:11px;color:#444;margin-top:4px">Animação de execução</div>
-          </div>
-        </div>
-        <!-- Inputs -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px">
-          <div>
-            <div class="label" style="text-align:center;margin-bottom:4px">Peso (kg)</div>
-            <div class="input-box active">90</div>
-          </div>
-          <div>
-            <div class="label" style="text-align:center;margin-bottom:4px">Reps</div>
-            <div class="input-box active">8</div>
-          </div>
-          <div>
-            <div class="label" style="text-align:center;margin-bottom:4px">RIR</div>
-            <div class="input-box">2</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sets -->
-      <div class="scroll-area" style="padding:12px 18px">
-        <span class="label" style="margin-bottom:10px;display:block">Sets — progresso</span>
-        ${[
-          { n:1, kg:85, reps:8, rir:2, state:'done' },
-          { n:2, kg:90, reps:8, rir:2, state:'done' },
-          { n:3, kg:90, reps:8, rir:2, state:'active' },
-          { n:4, kg:90, reps:6, rir:3, state:'pending' },
-        ].map(s => `
-          <div class="set-row">
-            <div class="set-num ${s.state}">${s.state==='done'?'✓':s.n}</div>
-            <span style="flex:1;font-size:13px;color:${s.state==='done'?'#666':s.state==='active'?'#fff':'#888'}">${s.kg} kg × ${s.reps} reps</span>
-            <span class="label">RIR ${s.rir}</span>
-            ${s.state==='done'?'<i class="ti ti-check" style="color:#27AE60;font-size:16px"></i>':''}
-          </div>`).join('')}
-        <div style="margin-top:12px;padding:10px;border:1px dashed #2E2E2E;border-radius:10px;text-align:center;cursor:pointer">
-          <span class="subtitle">+ Adicionar set</span>
-        </div>
-      </div>
-
-      <!-- Rest timer + action -->
-      <div style="padding:12px 18px 8px;background:#0A0A0A;border-top:1px solid #1E1E1E;flex-shrink:0">
-        <div class="row-between">
-          <div style="background:#1A1A1A;border-radius:12px;padding:10px 16px;text-align:center;cursor:pointer">
-            <div class="label">Descanso</div>
-            <div style="font-size:20px;font-weight:700;color:#FF6B35;margin-top:2px">01:30</div>
-            <div style="font-size:10px;color:#555">−30s / +30s</div>
-          </div>
-          <button class="btn-primary" style="flex:1;margin-left:12px">Registar set →</button>
-        </div>
-      </div>`;
-  }
-
-  /* ─── STATS ─── */
-  else if (id === 'stats') {
-    el.innerHTML = `
-      <div class="screen-hdr">
-        <span class="title">Stats & Analytics</span>
-      </div>
-
-      <!-- Tabs -->
-      <div style="display:flex;border-bottom:1px solid #1E1E1E;padding:0 10px;flex-shrink:0;overflow-x:auto;scrollbar-width:none">
-        ${['Visão Geral','Ginásio','Cardio','Body','Wellness','Nutrição'].map((t,i) => `
-          <div style="padding:11px 12px;font-size:12px;color:${i===0?'#FF6B35':'#555'};
-            border-bottom:${i===0?'2px solid #FF6B35':'2px solid transparent'};
-            white-space:nowrap;cursor:pointer;font-weight:${i===0?600:400}">${t}</div>`).join('')}
-      </div>
-
-      <div class="scroll-area" style="padding-top:12px">
-        <!-- Stats cards -->
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px;margin-bottom:12px">
-          ${[
-            { l:'Volume semanal', v:'8h 42m', sub:'↑ 12% vs semana anterior', sc:'#27AE60' },
-            { l:'CTL (Fitness)',   v:'68',     sub:'ATL: 72 · Forma: −4',      sc:'#E67E22' },
-            { l:'Sessões / mês',  v:'18',     sub:'Objectivo: 20 ✓ a caminho', sc:'#27AE60' },
-            { l:'Streak',         v:'12 dias', sub:'Melhor: 28 dias',          sc:'#FF6B35' },
-          ].map(m => `
-            <div class="card" style="margin:0">
-              <div class="label">${m.l}</div>
-              <div style="font-size:20px;font-weight:700;color:#fff;margin:5px 0">${m.v}</div>
-              <span style="font-size:11px;color:${m.sc}">${m.sub}</span>
-            </div>`).join('')}
-        </div>
-
-        <!-- Calendário -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Calendário multi-desporto</span>
-        </div>
-        <div class="card">
-          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px">
-            ${['S','T','Q','Q','S','S','D'].map(d => `<div style="text-align:center;font-size:10px;color:#444;padding-bottom:4px">${d}</div>`).join('')}
-            ${[
-              '#FF6B35','#27AE60','','#FF6B35','#FF6B35','','',
-              '#27AE60','#FF6B35','','#FF6B35','','#27AE60','',
-              '#FF6B35','','#FF6B35','#FF6B35','','#27AE60','',
-              '#FF6B35','#FF6B35','','#FF6B35','today','','',
-            ].map(c => `<div style="height:32px;border-radius:8px;background:${c==='today'?'#FF6B3530':c?c+'25':'#1A1A1A'};border:${c==='today'?'1px solid #FF6B35':'none'};position:relative">
-              ${c&&c!=='today'?`<div style="width:6px;height:6px;border-radius:3px;background:${c};position:absolute;bottom:4px;left:50%;transform:translateX(-50%)"></div>`:''}
-            </div>`).join('')}
-          </div>
-          <div class="row" style="gap:12px;justify-content:center;margin-top:8px">
-            ${[{c:'#FF6B35',l:'Ginásio'},{c:'#27AE60',l:'Corrida'},{c:'#E67E22',l:'Ciclismo'}].map(x=>
-              `<span style="font-size:11px;color:#888"><span style="color:${x.c}">●</span> ${x.l}</span>`
-            ).join('')}
-          </div>
-        </div>
-
-        <!-- Zonas FC -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Zonas FC — última corrida</span>
-        </div>
-        <div class="card">
-          <div style="display:flex;border-radius:8px;overflow:hidden;height:24px;margin-bottom:10px">
-            ${[{z:'Z1',p:15,c:'#4A4A4A'},{z:'Z2',p:48,c:'#2980B9'},{z:'Z3',p:20,c:'#27AE60'},{z:'Z4',p:12,c:'#E67E22'},{z:'Z5',p:5,c:'#E74C3C'}].map(z=>
-              `<div class="zone-seg" style="width:${z.p}%;background:${z.c}">${z.p>8?z.z:''}</div>`
-            ).join('')}
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
-            ${[{z:'Z1 — Fácil',p:15,t:'14 min',c:'#4A4A4A'},{z:'Z2 — Base',p:48,t:'46 min',c:'#2980B9'},{z:'Z3 — Tempo',p:20,t:'19 min',c:'#27AE60'},{z:'Z4 — Limiar',p:12,t:'11 min',c:'#E67E22'},{z:'Z5 — Máximo',p:5,t:'5 min',c:'#E74C3C'}].map(z=>
-              `<div style="font-size:11px;padding:3px 0">
-                <span style="color:${z.c}">●</span>
-                <span style="color:#888"> ${z.z}</span>
-                <span style="color:#fff;font-weight:600;float:right">${z.p}% · ${z.t}</span>
-              </div>`
-            ).join('')}
-          </div>
-        </div>
-
-        <!-- AI Insight -->
-        <div class="card" style="border-left:3px solid #8E44AD;margin-bottom:16px">
-          <div class="label" style="color:#8E44AD;margin-bottom:6px">💡 Correlação AI · 8 semanas de dados</div>
-          <span class="title" style="font-size:13px;line-height:1.6;font-weight:400;color:#ccc">
-            Quando o teu HRV está acima de <strong style="color:#fff">55ms</strong>, o teu pace de corrida é
-            <strong style="color:#27AE60">8% mais rápido</strong> em média nos treinos de qualidade.
-          </span>
-        </div>
-      </div>`;
-  }
-
-  /* ─── PROGRAMA ─── */
-  else if (id === 'programa') {
-    el.innerHTML = `
-      <div class="screen-hdr row-between">
-        <span class="title">Programa</span>
-        <button class="btn-secondary" style="padding:7px 14px;font-size:12px">+ Novo</button>
-      </div>
-
-      <div class="scroll-area" style="padding-top:12px">
-        <div class="section-hdr"><span class="title" style="font-size:14px">Programa activo</span></div>
-        <div class="card" style="border:1px solid #FF6B3330">
-          <div class="row-between" style="margin-bottom:10px">
-            <div class="col">
-              <span class="title">PPL — Força Geral</span>
-              <span class="subtitle">Semana 4 de 12 · 3 dias/semana</span>
-            </div>
-            <span class="badge" style="background:#27AE6020;color:#27AE60">87% aderência</span>
-          </div>
-          <div class="pbar-track" style="margin-bottom:10px">
-            <div class="pbar-fill" style="width:33%;background:#FF6B35"></div>
-          </div>
-          <div class="row-between">
-            ${['S','T','Q','Q','S','S','D'].map((d,i) => {
-              const filled = [0,2,4].includes(i);
-              const today = i === 1;
-              return `<div style="width:34px;height:34px;border-radius:9px;
-                background:${today?'#FF6B35':filled?'#FF6B3520':'#1E1E1E'};
-                border:${today?'none':filled?'1px solid #FF6B3540':'none'};
-                display:flex;align-items:center;justify-content:center;
-                font-size:10px;color:${today?'#fff':filled?'#FF6B35':'#444'};font-weight:${today?700:400}">${d}</div>`;
-            }).join('')}
-          </div>
-        </div>
-
-        <!-- Today's workout -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Hoje — Upper Push A</span></div>
-        ${[
-          { name:'Bench Press', sub:'4 × 8 reps · 90 kg estimado', sets:4 },
-          { name:'Overhead Press', sub:'3 × 10 reps · 55 kg estimado', sets:3 },
-          { name:'Incline DB Press', sub:'3 × 12 reps · 26 kg', sets:3 },
-          { name:'Cable Fly', sub:'3 × 15 reps · 15 kg', sets:3 },
-          { name:'Tricep Pushdown', sub:'3 × 15 reps · 35 kg', sets:3 },
-        ].map(e => `
-          <div class="int-row">
-            <div class="int-icon" style="background:#FF6B3520">
-              <i class="ti ti-barbell" style="color:#FF6B35"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${e.name}</span>
-              <span class="subtitle">${e.sub}</span>
-            </div>
-            <span class="badge" style="background:#1E1E1E;color:#666">${e.sets} sets</span>
-          </div>
-          <div class="divider"></div>`).join('')}
-
-        <div style="padding:14px 18px 4px">
-          <button class="btn-primary" style="width:100%">Iniciar treino →</button>
-        </div>
-
-        <!-- PRs -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Records pessoais activos</span></div>
-        <div class="card" style="margin-bottom:16px">
-          ${[
-            { ex:'Bench Press',    v:'102.5 kg', when:'há 2 sem' },
-            { ex:'Squat',         v:'145 kg',   when:'há 1 mês' },
-            { ex:'Deadlift',      v:'180 kg',   when:'há 3 sem' },
-            { ex:'Corrida 5km',   v:'23:41',    when:'há 3 sem' },
-          ].map(r => `
-            <div class="row-between" style="padding:8px 0;border-bottom:1px solid #1E1E1E">
-              <span class="subtitle">${r.ex}</span>
-              <div class="col" style="align-items:flex-end">
-                <span style="font-size:14px;font-weight:700;color:#27AE60">${r.v}</span>
-                <span class="label" style="font-size:10px">${r.when}</span>
-              </div>
-            </div>`).join('')}
-        </div>
-      </div>`;
-  }
-
-  /* ─── PERFIL ─── */
-  else if (id === 'perfil') {
-    el.innerHTML = `
-      <div class="screen-hdr"><span class="title">Perfil</span></div>
-
-      <div class="scroll-area">
-        <!-- User block -->
-        <div style="padding:20px 18px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #1E1E1E">
-          <div class="avatar" style="width:64px;height:64px;font-size:22px;border-radius:32px;background:#FF6B35">VF</div>
-          <div class="col">
-            <span class="title" style="font-size:17px">Vitor Ferreira</span>
-            <span class="subtitle">vitor.ms.ferreira@hotmail.com</span>
-            <div class="row" style="gap:6px;margin-top:6px">
-              <span class="badge" style="background:#FF6B3520;color:#FF6B35">⚡ Premium</span>
-              <span class="badge" style="background:#27AE6020;color:#27AE60">Coach</span>
-            </div>
-          </div>
-        </div>
-
-        ${[
-          { icon:'ti-heartbeat', label:'Zonas Cardíacas',   sub:'FCmáx 182 · 5 zonas configuradas',          color:'#E74C3C' },
-          { icon:'ti-target',    label:'Objectivos',        sub:'Força · Composição · Peso alvo 82 kg',       color:'#FF6B35' },
-          { icon:'ti-activity',  label:'Perfil de Saúde',   sub:'Bypass gástrico · 2 condições activas',      color:'#E67E22' },
-          { icon:'ti-plug',      label:'Integrações',       sub:'5 activas — WHOOP, Garmin, Withings…',       color:'#27AE60', screen:'integracoes' },
-          { icon:'ti-book',      label:'Knowledge Hub',     sub:'Glossário, guias, benchmarks por desporto',  color:'#2980B9' },
-          { icon:'ti-pill',      label:'Suplementos',       sub:'4 activos · Aderência 91%',                  color:'#8E44AD' },
-          { icon:'ti-scale',     label:'Body Metrics',      sub:'Último check-in há 3 dias',                  color:'#16A085', screen:'bodymetrics' },
-          { icon:'ti-settings',  label:'Preferências',      sub:'Unidades kg · Tema auto · Notificações',     color:'#666' },
-          { icon:'ti-users',     label:'Os meus atletas',   sub:'3 atletas activos — Coach Mode',             color:'#FF6B35' },
-        ].map(r => `
-          <div class="int-row" style="cursor:pointer" onclick="${r.screen?`setScreen('${r.screen}')`:''}" >
-            <div class="int-icon" style="background:${r.color}20">
-              <i class="ti ${r.icon}" style="color:${r.color}"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${r.label}</span>
-              <span class="subtitle">${r.sub}</span>
-            </div>
-            <i class="ti ti-chevron-right" style="color:#444;font-size:18px"></i>
-          </div>
-          <div class="divider"></div>`).join('')}
-        <div style="height:20px"></div>
-      </div>`;
-  }
-
-  /* ─── INTEGRAÇÕES ─── */
-  else if (id === 'integracoes') {
-    el.innerHTML = `
-      <div class="screen-hdr row-between">
-        <div class="col">
-          <span class="title">Hub de Integrações</span>
-          <span class="subtitle">5 ligadas · última sync há 2 min</span>
-        </div>
-      </div>
-
-      <div class="scroll-area" style="padding-top:12px">
-        <!-- Meta-layer -->
-        <div class="card" style="border:1px solid #27AE6040;background:#101E14;margin-bottom:12px">
-          <div class="label" style="color:#27AE60;margin-bottom:10px">Meta-layer — cobre 80% dos dispositivos automaticamente</div>
-          ${[
-            { name:'Apple Health',  sub:'Sincronizado há 2 min', connected:true,  color:'#E74C3C', icon:'ti-heart-rate-monitor' },
-            { name:'Google Health', sub:'Não configurado',        connected:false, color:'#27AE60', icon:'ti-activity' },
-          ].map(i => `
-            <div class="row-between" style="padding:8px 0;border-bottom:1px solid #152A1E">
-              <div class="row" style="gap:10px">
-                <div class="int-icon" style="width:34px;height:34px;background:${i.color}20">
-                  <i class="ti ${i.icon}" style="color:${i.color};font-size:17px"></i>
-                </div>
-                <div class="col">
-                  <span class="title" style="font-size:13px">${i.name}</span>
-                  <span class="subtitle" style="font-size:11px">${i.sub}</span>
-                </div>
-              </div>
-              <div style="padding:5px 12px;border-radius:12px;
-                background:${i.connected?'#27AE6020':'#2E2E2E'};
-                color:${i.connected?'#27AE60':'#777'};
-                font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div>
-            </div>`).join('')}
-        </div>
-
-        <!-- Wearables -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Wearables</span></div>
-        ${[
-          { name:'WHOOP 4.0',          sub:'HRV · Recovery · Sono · FC',     connected:true,  color:'#E74C3C', icon:'ti-device-watch' },
-          { name:'Garmin Forerunner',   sub:'GPS · FC · VO2max · Carga',      connected:true,  color:'#16A085', icon:'ti-device-watch' },
-          { name:'Oura Ring 4',         sub:'HRV · Sono · Temperatura',       connected:false, color:'#8E44AD', icon:'ti-circle' },
-          { name:'Polar H10',           sub:'FC chest strap — alta precisão', connected:false, color:'#E74C3C', icon:'ti-activity' },
-        ].map(i => `
-          <div class="int-row">
-            <div class="int-icon" style="background:${i.color}20">
-              <i class="ti ${i.icon}" style="color:${i.color}"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${i.name}</span>
-              <span class="subtitle">${i.sub}</span>
-            </div>
-            <div class="row" style="gap:6px">
-              <div class="status-dot" style="background:${i.connected?'#27AE60':'#333'}"></div>
-              <div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div>
-            </div>
-          </div>
-          <div class="divider"></div>`).join('')}
-
-        <!-- Nutrição & Peso -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Nutrição & Peso</span></div>
-        ${[
-          { name:'MyFitnessPal',  sub:'Calorias · Proteína · Macros',    connected:true,  color:'#27AE60', icon:'ti-salad' },
-          { name:'Withings Body+',sub:'Peso · % Gordura · % Músculo',    connected:true,  color:'#2980B9', icon:'ti-scale' },
-          { name:'Cronometer',    sub:'Micronutrientes detalhados',       connected:false, color:'#E67E22', icon:'ti-apple' },
-        ].map(i => `
-          <div class="int-row">
-            <div class="int-icon" style="background:${i.color}20">
-              <i class="ti ${i.icon}" style="color:${i.color}"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${i.name}</span>
-              <span class="subtitle">${i.sub}</span>
-            </div>
-            <div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div>
-          </div>
-          <div class="divider"></div>`).join('')}
-
-        <!-- Desporto -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Desporto & Treino</span></div>
-        ${[
-          { name:'Strava',         sub:'Actividades GPS · Segmentos',   connected:true,  color:'#E67E22', icon:'ti-run' },
-          { name:'TrainingPeaks',  sub:'Planos estruturados · TSS',     connected:false, color:'#2980B9', icon:'ti-chart-line' },
-          { name:'Concept2',       sub:'Ergómetro de remo · Histórico', connected:false, color:'#C0392B', icon:'ti-ripple' },
-        ].map(i => `
-          <div class="int-row">
-            <div class="int-icon" style="background:${i.color}20">
-              <i class="ti ${i.icon}" style="color:${i.color}"></i>
-            </div>
-            <div class="col" style="flex:1">
-              <span class="title" style="font-size:13px">${i.name}</span>
-              <span class="subtitle">${i.sub}</span>
-            </div>
-            <div style="padding:5px 12px;border-radius:12px;background:${i.connected?'#27AE6020':'#1E1E1E'};color:${i.connected?'#27AE60':'#666'};font-size:11px;font-weight:600">${i.connected?'Ligado':'Ligar'}</div>
-          </div>
-          <div class="divider"></div>`).join('')}
-
-        <div style="height:16px"></div>
-      </div>`;
-  }
-
-  /* ─── BODY METRICS ─── */
-  else if (id === 'bodymetrics') {
-    el.innerHTML = `
-      <div class="screen-hdr row-between">
-        <div class="col">
-          <span class="title">Body Metrics</span>
-          <span class="subtitle">Último check-in: há 3 dias (24 Mai)</span>
-        </div>
-        <button class="btn-secondary" style="font-size:12px;padding:7px 14px">Check-in</button>
-      </div>
-
-      <div class="scroll-area" style="padding-top:12px">
-        <!-- Composição -->
-        <div class="card" style="border:1px solid #2980B940">
-          <div class="label" style="color:#2980B9;margin-bottom:10px">Composição corporal</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-            ${[
-              { l:'Peso',    v:'87.4 kg', d:'↓ 0.3 kg',  dc:'#27AE60' },
-              { l:'Gordura', v:'19.2%',   d:'↓ 0.4%',    dc:'#27AE60' },
-              { l:'Músculo', v:'43.8%',   d:'↑ 0.2%',    dc:'#27AE60' },
-              { l:'IMC',     v:'24.1',    d:'Normal',     dc:'#27AE60' },
-            ].map(m => `
-              <div class="card-sm" style="text-align:center">
-                <div class="label">${m.l}</div>
-                <div style="font-size:20px;font-weight:700;color:#fff;margin:5px 0">${m.v}</div>
-                <span style="font-size:11px;color:${m.dc};font-weight:600">${m.d}</span>
-              </div>`).join('')}
-          </div>
-        </div>
-
-        <!-- Rácios -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Rácios</span></div>
-        <div class="card">
-          ${[
-            { l:'Cintura/Altura (WHtR)', v:'0.47', note:'✓ Saudável  (< 0.50)', c:'#27AE60' },
-            { l:'Cintura/Anca (WHR)',    v:'0.88', note:'✓ Saudável  (< 0.90)', c:'#27AE60' },
-          ].map(r => `
-            <div class="row-between" style="padding:9px 0;border-bottom:1px solid #1E1E1E">
-              <div class="col">
-                <span class="subtitle">${r.l}</span>
-                <span style="font-size:11px;color:${r.c}">${r.note}</span>
-              </div>
-              <span style="font-size:20px;font-weight:700;color:#fff">${r.v}</span>
-            </div>`).join('')}
-        </div>
-
-        <!-- Evolução peso -->
-        <div class="section-hdr">
-          <span class="title" style="font-size:14px">Evolução — 3 meses</span>
-          <div style="display:flex;gap:6px">
-            ${['1M','3M','6M','1A'].map((t,i) => `<span style="font-size:11px;padding:3px 8px;border-radius:8px;background:${i===1?'#2980B920':'transparent'};color:${i===1?'#2980B9':'#555'};cursor:pointer">${t}</span>`).join('')}
-          </div>
-        </div>
-        <div class="card">
-          <svg width="100%" height="70" viewBox="0 0 300 70">
-            <defs>
-              <linearGradient id="wGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#2980B9" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#2980B9" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <polygon points="0,58 37,55 75,52 112,48 150,44 187,41 225,38 262,34 300,30 300,70 0,70"
-              fill="url(#wGrad)"/>
-            <polyline points="0,58 37,55 75,52 112,48 150,44 187,41 225,38 262,34 300,30"
-              fill="none" stroke="#2980B9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="300" cy="30" r="5" fill="#2980B9"/>
-            <circle cx="0" cy="58" r="4" fill="#555"/>
-          </svg>
-          <div class="row-between" style="margin-top:4px">
-            <div class="col"><span class="label">Mar 2026</span><span class="subtitle" style="font-weight:600;color:#fff">91.2 kg</span></div>
-            <div class="col" style="align-items:flex-end"><span class="label">Mai 2026</span><span style="font-size:15px;font-weight:700;color:#27AE60">87.4 kg ↓ 3.8</span></div>
-          </div>
-        </div>
-
-        <!-- Fotos de progresso -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Fotos de progresso</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 14px;margin-bottom:12px">
-          ${[
-            { l:'Frente',   done:true  },
-            { l:'Costas',   done:false },
-            { l:'Lateral',  done:false },
-          ].map(f => `
-            <div style="background:#1A1A1A;border-radius:12px;height:90px;
-              display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-              border:${f.done?'1px solid #2980B9':'1px dashed #2E2E2E'};cursor:pointer">
-              <i class="ti ${f.done?'ti-check':'ti-camera'}" style="color:${f.done?'#2980B9':'#444'};font-size:20px"></i>
-              <span style="font-size:11px;color:${f.done?'#2980B9':'#555'}">${f.l}</span>
-            </div>`).join('')}
-        </div>
-
-        <!-- Medidas corporais -->
-        <div class="section-hdr"><span class="title" style="font-size:14px">Medidas corporais</span></div>
-        <div class="card" style="margin-bottom:16px">
-          ${[
-            { g:'Upper Body', items:[{l:'Cintura',v:'82 cm'},{l:'Ancas',v:'98 cm'},{l:'Peito',v:'104 cm'}] },
-            { g:'Braços',     items:[{l:'Bicep D',v:'38 cm'},{l:'Bicep E',v:'37.5 cm'}] },
-          ].map(g => `
-            <div style="margin-bottom:8px">
-              <div class="label" style="margin-bottom:6px">${g.g}</div>
-              ${g.items.map(m => `
-                <div class="row-between" style="padding:5px 0;border-bottom:1px solid #1E1E1E">
-                  <span class="subtitle">${m.l}</span>
-                  <span style="font-size:13px;font-weight:600;color:#fff">${m.v}</span>
-                </div>`).join('')}
-            </div>`).join('')}
-          <button class="btn-secondary" style="width:100%;margin-top:8px;text-align:center">Ver todas as medidas</button>
-        </div>
-      </div>`;
-  }
-}
-
-// Init
-renderNav();
-renderTabs('inicio');
-renderScreen('dashboard');
+// INIT
+renderNav();renderTabs('inicio');renderScreen('dashboard');
 </script>
-
 </body>
 </html>
