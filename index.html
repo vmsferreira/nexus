@@ -95,7 +95,13 @@
   .option-card.selected .option-label { color: #fff; }
   .option-icon { font-size: 28px; color: #555; transition: color 0.2s; }
   .option-label { font-size: 13px; font-weight: 600; color: #888; transition: color 0.2s; }
-  .sport-gym{--sport-color:#FF6B35}.sport-run{--sport-color:#27AE60}.sport-cycle{--sport-color:#E67E22}.sport-swim{--sport-color:#2980B9}.sport-row{--sport-color:#C0392B}.sport-hyrox{--sport-color:#8E44AD}.sport-tri{--sport-color:#16A085}.sport-walk{--sport-color:#1ABC9C}
+  .sport-gym{--sport-color:#FF6B35}.sport-run{--sport-color:#27AE60}.sport-cycle{--sport-color:#E67E22}.sport-swim{--sport-color:#2980B9}.sport-row{--sport-color:#C0392B}.sport-hyrox{--sport-color:#8E44AD}.sport-tri{--sport-color:#16A085}.sport-walk{--sport-color:#1ABC9C}.sport-padel{--sport-color:#F39C12}.sport-yoga{--sport-color:#9B59B6}
+  .sched-row { display:none; align-items:center; gap:6px; padding:9px 0; border-bottom:1px solid #222; }
+  .sched-row:last-child { border-bottom:none; }
+  .sched-day-label { width:30px; font-size:12px; font-weight:700; color:#FF6B35; flex-shrink:0; }
+  .sched-times { display:flex; gap:5px; flex-wrap:wrap; }
+  .time-pill { padding:5px 10px; border-radius:10px; border:1px solid #2E2E2E; color:#555; font-size:11px; font-weight:600; cursor:pointer; background:transparent; transition:all .15s; font-family:inherit; }
+  .time-pill.sel { background:#FF6B35; border-color:#FF6B35; color:#fff; }
   .goal-card { background: #1a1a1a; border: 2px solid #252525; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
   .goal-card.selected { border-color: #FF6B35; background: rgba(255,107,53,0.08); }
   .goal-icon-wrap { width: 44px; height: 44px; background: #252525; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #FF6B35; flex-shrink: 0; }
@@ -250,6 +256,8 @@
             <div class="option-card sport-hyrox" onclick="toggleCard(this)"><span class="option-icon">💪</span><span class="option-label">HYROX</span></div>
             <div class="option-card sport-tri" onclick="toggleCard(this)"><span class="option-icon">🏅</span><span class="option-label">Triatlo</span></div>
             <div class="option-card sport-walk" onclick="toggleCard(this)"><span class="option-icon">🚶</span><span class="option-label">Caminhada</span></div>
+            <div class="option-card sport-padel" onclick="toggleCard(this)"><span class="option-icon">🎾</span><span class="option-label">Padel</span></div>
+            <div class="option-card sport-yoga" onclick="toggleCard(this)"><span class="option-icon">🧘</span><span class="option-label">Yoga</span></div>
           </div>
         </div>
         <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(3)">Continuar <i class="ti ti-arrow-right"></i></button></div>
@@ -262,6 +270,8 @@
           <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🏆</div><div class="goal-text"><div class="goal-title">Melhorar performance</div><div class="goal-desc">Bater recordes pessoais e eventos competitivos</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
           <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">❤️</div><div class="goal-text"><div class="goal-title">Saúde &amp; bem-estar</div><div class="goal-desc">Manter-me activo, dormir melhor, reduzir stress</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
           <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">⚖️</div><div class="goal-text"><div class="goal-title">Recomposição corporal</div><div class="goal-desc">Perder gordura e ganhar músculo ao mesmo tempo</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">🫁</div><div class="goal-text"><div class="goal-title">Melhorar VO2max</div><div class="goal-desc">Aumentar capacidade aeróbica e resistência cardiovascular</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
+          <div class="goal-card" onclick="toggleGoal(this)"><div class="goal-icon-wrap">💓</div><div class="goal-text"><div class="goal-title">Melhorar HRV</div><div class="goal-desc">Optimizar recuperação, sistema nervoso e longevidade</div></div><div class="check-circle"><i class="ti ti-check"></i></div></div>
         </div>
         <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(4)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(2)">← Voltar</button></div>
       </div>
@@ -281,11 +291,27 @@
         <div class="progress-wrap"><div class="progress-row"><span class="progress-label">Passo 4 de 10</span><span class="progress-step">40%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:40%"></div></div></div>
         <div class="screen-body"><div style="height:16px"></div><div class="screen-title">Quando e quanto tempo treinas?</div><div class="screen-subtitle">Escolhe os dias típicos e a duração por sessão.</div>
           <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">DIAS DA SEMANA</div>
-          <div class="days-grid"><div class="day-btn" onclick="toggleDay(this)">S</div><div class="day-btn selected" onclick="toggleDay(this)">T</div><div class="day-btn" onclick="toggleDay(this)">Q</div><div class="day-btn selected" onclick="toggleDay(this)">Q</div><div class="day-btn" onclick="toggleDay(this)">S</div><div class="day-btn selected" onclick="toggleDay(this)">S</div><div class="day-btn" onclick="toggleDay(this)">D</div></div>
+          <div class="days-grid">
+            <div class="day-btn" data-day="0" onclick="toggleDay(this)">S</div>
+            <div class="day-btn selected" data-day="1" onclick="toggleDay(this)">T</div>
+            <div class="day-btn" data-day="2" onclick="toggleDay(this)">Q</div>
+            <div class="day-btn selected" data-day="3" onclick="toggleDay(this)">Q</div>
+            <div class="day-btn" data-day="4" onclick="toggleDay(this)">S</div>
+            <div class="day-btn selected" data-day="5" onclick="toggleDay(this)">S</div>
+            <div class="day-btn" data-day="6" onclick="toggleDay(this)">D</div>
+          </div>
+          <div style="font-size:13px;color:#555;margin-bottom:8px;font-weight:600;">HORÁRIO POR DIA</div>
+          <div style="background:#1a1a1a;border-radius:14px;padding:4px 12px;margin-bottom:16px;">
+            <div class="sched-row" id="sched-0"><span class="sched-day-label">Seg</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill sel" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-1" style="display:flex;"><span class="sched-day-label">Ter</span><div class="sched-times"><button class="time-pill sel" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-2"><span class="sched-day-label">Qua</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill sel" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-3" style="display:flex;"><span class="sched-day-label">Qui</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill sel" onclick="setTime(this)">🌙 Noite</button><button class="time-pill" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-4"><span class="sched-day-label">Sex</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill sel" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-5" style="display:flex;"><span class="sched-day-label">Sáb</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill sel" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill" onclick="setTime(this)">Qualquer</button></div></div>
+            <div class="sched-row" id="sched-6"><span class="sched-day-label">Dom</span><div class="sched-times"><button class="time-pill" onclick="setTime(this)">🌅 Manhã</button><button class="time-pill" onclick="setTime(this)">☀️ Tarde</button><button class="time-pill" onclick="setTime(this)">🌙 Noite</button><button class="time-pill sel" onclick="setTime(this)">Qualquer</button></div></div>
+          </div>
           <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">DURAÇÃO POR SESSÃO</div>
           <div class="duration-row"><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">30'</div><div class="dur-sub">Express</div></div><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">45'</div><div class="dur-sub">Rápido</div></div><div class="dur-btn selected" onclick="selectDur(this)"><div class="dur-main">60'</div><div class="dur-sub">Standard</div></div><div class="dur-btn" onclick="selectDur(this)"><div class="dur-main">90'</div><div class="dur-sub">Intenso</div></div></div>
-          <div style="font-size:13px;color:#555;margin-bottom:10px;font-weight:600;">PREFERÊNCIA DE HORÁRIO</div>
-          <div class="options-grid three"><div class="option-card selected" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🌅</span><span class="option-label">Manhã</span></div><div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">☀️</span><span class="option-label">Tarde</span></div><div class="option-card" onclick="toggleCard(this)" style="--sport-color:#FF6B35;"><span class="option-icon">🌙</span><span class="option-label">Noite</span></div></div>
         </div>
         <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(6)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(4)">← Voltar</button></div>
       </div>
@@ -434,7 +460,8 @@ function toggleCard(el){el.classList.toggle('selected');}
 function toggleGoal(el){el.classList.toggle('selected');}
 function selectLevel(el){document.querySelectorAll('.level-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
 function selectDur(el){document.querySelectorAll('.dur-btn').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
-function toggleDay(el){el.classList.toggle('selected');}
+function toggleDay(el){el.classList.toggle('selected');const day=el.getAttribute('data-day');const row=document.getElementById('sched-'+day);if(row)row.style.display=el.classList.contains('selected')?'flex':'none';}
+function setTime(btn){const row=btn.closest('.sched-row');row.querySelectorAll('.time-pill').forEach(p=>p.classList.remove('sel'));btn.classList.add('sel');}
 function selectGender(el){document.querySelectorAll('#ob-screen-9 .option-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');}
 function step(key,delta){stepValues[key]=Math.round((stepValues[key]+delta)*10)/10;const el=document.getElementById('val-'+key);if(el)el.textContent=stepValues[key];}
 function startLoading(){const steps=['step1','step2','step3','step4'];const texts=[['A gerar o teu programa...','A IA está a calcular periodização, progressão e zonas de treino'],['A calibrar zonas de FC...','FC Máx: 182 bpm · Zona 2: 127–145 bpm · Zona 5: >164 bpm'],['A montar as sessões...','Semana 1–4: Bloco Base · Semana 5–8: Bloco Intensidade'],['Quase pronto!','A preparar o teu primeiro treino para amanhã']];steps.forEach(s=>{document.getElementById(s).style.opacity='0.3';});let i=0;const interval=setInterval(()=>{if(i<steps.length){document.getElementById(steps[i]).style.opacity='1';document.getElementById('loading-text').textContent=texts[i][0];document.getElementById('loading-sub').textContent=texts[i][1];i++;}else{clearInterval(interval);setTimeout(()=>goToScreen(13),600);}},800);}
