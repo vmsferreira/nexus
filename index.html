@@ -200,30 +200,6 @@
   <button class="mode-btn" id="mode-ob-btn" onclick="setMode('onboarding')">🚀 Onboarding</button>
 </div>
 
-<div class="nav-pills" id="app-nav"></div>
-<div class="nav-pills" id="ob-nav">
-  <button class="pill active" onclick="goToScreen(1)">1. Welcome</button>
-  <button class="pill" onclick="goToScreen(2)">2. Desportos</button>
-  <button class="pill" onclick="goToScreen(3)">3. Objectivos</button>
-  <button class="pill" onclick="goToScreen(4)">4. Nível</button>
-  <button class="pill" onclick="goToScreen(5)">5. Disponibilidade</button>
-  <button class="pill" onclick="goToScreen(6)">6. Equipamento</button>
-  <button class="pill" onclick="goToScreen(7)">7. Saúde</button>
-  <button class="pill" onclick="goToScreen(8)">8. Dispositivos</button>
-  <button class="pill" onclick="goToScreen(9)">9. Dados Corporais</button>
-  <button class="pill" onclick="goToScreen(10)">10. Saúde ♀</button>
-  <button class="pill" onclick="goToScreen(11)">11. Saúde ♂</button>
-  <button class="pill" onclick="goToScreen(12)">12. Eventos</button>
-  <button class="pill" onclick="goToScreen(13)">13. Revisão</button>
-  <button class="pill" onclick="goToScreen(14)">14. A Gerar…</button>
-  <button class="pill" onclick="goToScreen(15)">15. Sucesso!</button>
-  <button class="pill" onclick="goToScreen(16)">16. Disclaimer ⚕</button>
-  <button class="pill" onclick="goToScreen(17)">17. Mobilidade</button>
-  <button class="pill" onclick="goToScreen(18)">18. Suplementos</button>
-  <button class="pill" onclick="goToScreen(19)">19. Bypass</button>
-  <button class="pill" onclick="goToScreen(20)">20. Performance+</button>
-</div>
-
 <div class="phone-wrap">
   <div class="phone">
     <div class="notch"></div>
@@ -491,35 +467,118 @@
         </div>
         <div class="bottom-bar"><button class="btn-primary" onclick="setMode('app')"><i class="ti ti-home"></i> Ir para o Dashboard</button></div>
       </div>
-    </div>
-  </div>
-</div>
-
-  <div id="ob-screen-16" class="ob-screen">
+    
+<div id="ob-screen-16" class="ob-screen">
     <div class="screen-hdr"><div style="text-align:center"><div style="font-size:22px;margin-bottom:6px">⚕️</div><span class="title">Aviso Médico</span><div class="subtitle" style="margin-top:4px;font-size:10px">Condicional: 55+ / condição cardíaca / gravidez</div></div></div>
-    <div class="scroll-area" style="padding:14px 18px"><div style="background:#E74C3C10;border-radius:14px;padding:14px;border:1px solid #E74C3C30;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#E74C3C;margin-bottom:8px">⚠ Recomendação Médica</div><div style="font-size:12px;color:#ccc;line-height:1.6">Com base no teu perfil, recomendamos que consultes o teu médico antes de iniciar um programa de treino intenso. A NEXUS adapta o programa ao teu perfil de saúde.</div></div><div style="font-size:12px;color:#888;margin-bottom:12px">Confirma que:</div>${['Fui avaliado por um médico nos últimos 12 meses','Não tenho contra-indicações conhecidas para exercício','Parareia se sentir dor ou desconforto','Em caso de dúvida consultarei o meu médico'].map((c,i)=>`<div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #1E1E1E"><div style="width:22px;height:22px;border-radius:6px;border:2px solid ${i<2?'#27AE60':'#2E2E2E'};background:${i<2?'#27AE6020':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer">${i<2?'<i class="ti ti-check" style="color:#27AE60;font-size:12px"></i>':''}</div><div style="font-size:12px;color:#ccc;line-height:1.5">${c}</div></div>`).join('')}</div>
+    <div class="scroll-area" style="padding:14px 18px"><div style="background:#E74C3C10;border-radius:14px;padding:14px;border:1px solid #E74C3C30;margin-bottom:14px"><div style="font-size:13px;font-weight:700;color:#E74C3C;margin-bottom:8px">⚠ Recomendação Médica</div><div style="font-size:12px;color:#ccc;line-height:1.6">Com base no teu perfil, recomendamos que consultes o teu médico antes de iniciar um programa de treino intenso. A NEXUS adapta o programa ao teu perfil de saúde.</div></div>
+    <div style="font-size:12px;color:#888;margin-bottom:12px">Confirma que:</div>
+    <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #1E1E1E"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #27AE60;background:#27AE6020;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer"><i class="ti ti-check" style="color:#27AE60;font-size:12px"></i></div><div style="font-size:12px;color:#ccc;line-height:1.5">Fui avaliado por um médico nos últimos 12 meses</div></div>
+    <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #1E1E1E"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #27AE60;background:#27AE6020;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer"><i class="ti ti-check" style="color:#27AE60;font-size:12px"></i></div><div style="font-size:12px;color:#ccc;line-height:1.5">Não tenho contra-indicações conhecidas para exercício</div></div>
+    <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #1E1E1E"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #2E2E2E;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer"></div><div style="font-size:12px;color:#ccc;line-height:1.5">Parareia se sentir dor ou desconforto</div></div>
+    <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #1E1E1E"><div style="width:22px;height:22px;border-radius:6px;border:2px solid #2E2E2E;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer"></div><div style="font-size:12px;color:#ccc;line-height:1.5">Em caso de dúvida consultarei o meu médico</div></div>
+    </div>
     <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(9)">Compreendo — Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(15)">← Voltar</button></div>
   </div>
-  <div id="ob-screen-17" class="ob-screen">
+    <div id="ob-screen-17" class="ob-screen">
     <div class="screen-hdr"><span class="title">Perfil de Mobilidade</span><div class="subtitle" style="font-size:10px">Condicional: 45+ / condição articular / yoga</div></div>
-    <div class="scroll-area" style="padding:14px 18px"><p style="font-size:12px;color:#888;margin-bottom:14px">Permite adaptar o aquecimento e evitar movimentos contraindicados.</p>${[['Excelente — sem limitações','Faço mobilidade regularmente',true],['Boa — ligeiras tensões','Sem dor em movimentos normais',false],['Limitada — dores frequentes','Dificuldade em movimentos amplos',false],['Pós-cirurgia / reabilitação','Programa personalizado necessário',false]].map(([t,d,a])=>`<div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid ${a?'#FF6B35':'#2E2E2E'};cursor:pointer"><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">${t}</div><div style="font-size:11px;color:#666">${d}</div></div>`).join('')}<div style="font-size:11px;color:#555;font-weight:700;margin:12px 0 8px">ZONAS DE DESCONFORTO</div><div style="display:flex;flex-wrap:wrap;gap:6px">${['Ombros','Lombar','Joelhos','Ancas','Tornozelos','Pescoço','Nenhuma'].map((z,i)=>`<div style="padding:7px 12px;border-radius:10px;background:${i===6?'#FF6B3520':'#1A1A1A'};border:1px solid ${i===6?'#FF6B35':'#2E2E2E'};font-size:11px;color:${i===6?'#FF6B35':'#888'};cursor:pointer">${z}</div>`).join('')}</div></div>
+    <div class="scroll-area" style="padding:14px 18px">
+    <p style="font-size:12px;color:#888;margin-bottom:14px">Permite adaptar o aquecimento e evitar movimentos contraindicados.</p>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #FF6B35;cursor:pointer"><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Excelente — sem limitações</div><div style="font-size:11px;color:#666">Faço mobilidade regularmente</div></div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #2E2E2E;cursor:pointer"><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Boa — ligeiras tensões</div><div style="font-size:11px;color:#666">Sem dor em movimentos normais</div></div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #2E2E2E;cursor:pointer"><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Limitada — dores frequentes</div><div style="font-size:11px;color:#666">Dificuldade em movimentos amplos</div></div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:12px;border:1px solid #2E2E2E;cursor:pointer"><div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2px">Pós-cirurgia / reabilitação</div><div style="font-size:11px;color:#666">Programa personalizado necessário</div></div>
+    <div style="font-size:11px;color:#555;font-weight:700;margin:12px 0 8px">ZONAS DE DESCONFORTO</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Ombros</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Lombar</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Joelhos</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Ancas</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Tornozelos</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#1A1A1A;border:1px solid #2E2E2E;font-size:11px;color:#888;cursor:pointer">Pescoço</div>
+      <div style="padding:7px 12px;border-radius:10px;background:#FF6B3520;border:1px solid #FF6B35;font-size:11px;color:#FF6B35;cursor:pointer">Nenhuma</div>
+    </div>
+    </div>
     <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(9)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(15)">← Voltar</button></div>
   </div>
-  <div id="ob-screen-18" class="ob-screen">
+    <div id="ob-screen-18" class="ob-screen">
     <div class="screen-hdr"><span class="title">Suplementação</span><div class="subtitle" style="font-size:10px">Ecrã 18 — Pergunta leve (30 segundos)</div></div>
-    <div class="scroll-area" style="padding:14px 18px"><p style="font-size:13px;color:#ccc;margin-bottom:18px;line-height:1.6">Tens um stack de suplementos? A NEXUS ajuda-te a optimizá-lo com base em evidência científica.</p>${[{t:'Sim, já tenho o meu stack',d:'Vou introduzir o que tomo',ic:'ti-pill',sel:false},{t:'Quero orientação baseada em ciência',d:'A NEXUS sugere para o meu perfil',ic:'ti-flask',sel:true},{t:'Prefiro não abordar suplementos',d:'Não incluir nas recomendações',ic:'ti-x',sel:false}].map(o=>`<div style="background:#1A1A1A;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid ${o.sel?'#FF6B35':'#2E2E2E'};cursor:pointer;display:flex;gap:12px;align-items:flex-start"><div style="width:36px;height:36px;border-radius:10px;background:${o.sel?'#FF6B3520':'#2E2E2E'};display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ${o.ic}" style="color:${o.sel?'#FF6B35':'#666'};font-size:18px"></i></div><div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">${o.t}</div><div style="font-size:11px;color:#666">${o.d}</div></div></div>`).join('')}</div>
+    <div class="scroll-area" style="padding:14px 18px">
+    <p style="font-size:13px;color:#ccc;margin-bottom:18px;line-height:1.6">Tens um stack de suplementos? A NEXUS ajuda-te a optimizá-lo com base em evidência científica.</p>
+    <div style="background:#1A1A1A;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #2E2E2E;cursor:pointer;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:36px;height:36px;border-radius:10px;background:#2E2E2E;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-pill" style="color:#666;font-size:18px"></i></div>
+      <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Sim, já tenho o meu stack</div><div style="font-size:11px;color:#666">Vou introduzir o que tomo</div></div>
+    </div>
+    <div style="background:#1A1A1A;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #FF6B35;cursor:pointer;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:36px;height:36px;border-radius:10px;background:#FF6B3520;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-flask" style="color:#FF6B35;font-size:18px"></i></div>
+      <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Quero orientação baseada em ciência</div><div style="font-size:11px;color:#666">A NEXUS sugere para o meu perfil</div></div>
+    </div>
+    <div style="background:#1A1A1A;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #2E2E2E;cursor:pointer;display:flex;gap:12px;align-items:flex-start">
+      <div style="width:36px;height:36px;border-radius:10px;background:#2E2E2E;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-x" style="color:#666;font-size:18px"></i></div>
+      <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px">Prefiro não abordar suplementos</div><div style="font-size:11px;color:#666">Não incluir nas recomendações</div></div>
+    </div>
+    </div>
     <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(13)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(15)">← Voltar</button></div>
   </div>
-  <div id="ob-screen-19" class="ob-screen">
+    <div id="ob-screen-19" class="ob-screen">
     <div class="screen-hdr"><span class="title">Nutrição Específica</span><div class="subtitle" style="font-size:10px">Condicional: bypass gástrico / cirurgia bariátrica</div></div>
-    <div class="scroll-area" style="padding:14px 18px"><div style="background:#E67E2210;border-radius:14px;padding:14px;border:1px solid #E67E2230;margin-bottom:14px"><div style="font-size:11px;color:#E67E22;font-weight:700;margin-bottom:6px">⚠ Protocolo pós-bariátrica</div><div style="font-size:12px;color:#ccc;line-height:1.5">Programa adaptado com proteína prioritária, hidratação e suplementos obrigatórios (B12, ferro, cálcio).</div></div><div style="font-size:11px;color:#555;font-weight:700;margin-bottom:8px">FASE PÓS-CIRURGIA</div>${['< 6 meses — adaptação','6 meses – 1 ano — estabilização','1 – 3 anos — manutenção','> 3 anos — longo prazo'].map((f,i)=>`<div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid ${i===3?'#FF6B35':'#2E2E2E'};cursor:pointer;font-size:13px;color:#fff">${f}</div>`).join('')}<div style="font-size:11px;color:#555;font-weight:700;margin:12px 0 8px">SUPLEMENTOS OBRIGATÓRIOS</div><div style="display:flex;flex-wrap:wrap;gap:6px">${['B12','Ferro + Vit C','Cálcio + D3','Multivitamínico'].map(s=>`<div style="padding:6px 12px;border-radius:8px;background:#27AE6020;border:1px solid #27AE6030;font-size:11px;color:#27AE60">${s}</div>`).join('')}</div></div>
+    <div class="scroll-area" style="padding:14px 18px">
+    <div style="background:#E67E2210;border-radius:14px;padding:14px;border:1px solid #E67E2230;margin-bottom:14px"><div style="font-size:11px;color:#E67E22;font-weight:700;margin-bottom:6px">⚠ Protocolo pós-bariátrica</div><div style="font-size:12px;color:#ccc;line-height:1.5">Programa adaptado com proteína prioritária, hidratação e suplementos obrigatórios (B12, ferro, cálcio).</div></div>
+    <div style="font-size:11px;color:#555;font-weight:700;margin-bottom:8px">FASE PÓS-CIRURGIA</div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #2E2E2E;cursor:pointer;font-size:13px;color:#fff">menos de 6 meses — adaptação</div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #2E2E2E;cursor:pointer;font-size:13px;color:#fff">6 meses – 1 ano — estabilização</div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #2E2E2E;cursor:pointer;font-size:13px;color:#fff">1 – 3 anos — manutenção</div>
+    <div style="background:#1A1A1A;border-radius:10px;padding:12px;margin-bottom:12px;border:1px solid #FF6B35;cursor:pointer;font-size:13px;color:#fff">mais de 3 anos — longo prazo</div>
+    <div style="font-size:11px;color:#555;font-weight:700;margin-bottom:8px">SUPLEMENTOS OBRIGATÓRIOS</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      <div style="padding:6px 12px;border-radius:8px;background:#27AE6020;border:1px solid #27AE6030;font-size:11px;color:#27AE60">B12</div>
+      <div style="padding:6px 12px;border-radius:8px;background:#27AE6020;border:1px solid #27AE6030;font-size:11px;color:#27AE60">Ferro + Vit C</div>
+      <div style="padding:6px 12px;border-radius:8px;background:#27AE6020;border:1px solid #27AE6030;font-size:11px;color:#27AE60">Cálcio + D3</div>
+      <div style="padding:6px 12px;border-radius:8px;background:#27AE6020;border:1px solid #27AE6030;font-size:11px;color:#27AE60">Multivitamínico</div>
+    </div>
+    </div>
     <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(13)">Continuar <i class="ti ti-arrow-right"></i></button><button class="btn-secondary" onclick="goToScreen(15)">← Voltar</button></div>
   </div>
-  <div id="ob-screen-20" class="ob-screen">
+    <div id="ob-screen-20" class="ob-screen">
     <div class="screen-hdr"><span class="title">Métricas Avançadas</span><div class="subtitle" style="font-size:10px">Condicional: objectivo performance / atleta</div></div>
-    <div class="scroll-area" style="padding:14px 18px"><p style="font-size:12px;color:#888;margin-bottom:14px">Para optimizar o programa de performance. Podes saltar e introduzir mais tarde.</p>${[{l:'VO2max estimado (ml/kg/min)',ph:'ex: 45',ic:'ti-lungs'},{l:'FTP — ciclismo (Watts)',ph:'ex: 220',ic:'ti-bike'},{l:'Pace 5km — corrida',ph:'ex: 25:30 min',ic:'ti-run'},{l:'1RM Squat (kg)',ph:'ex: 120',ic:'ti-barbell'}].map(f=>`<div style="margin-bottom:12px"><div style="font-size:11px;color:#555;margin-bottom:5px;font-weight:600">${f.l}</div><div style="background:#1A1A1A;border-radius:10px;padding:10px 14px;border:1px solid #2E2E2E;display:flex;gap:10px;align-items:center"><i class="ti ${f.ic}" style="color:#FF6B35;font-size:16px"></i><span style="font-size:13px;color:#444">${f.ph}</span></div></div>`).join('')}<div style="background:#2980B910;border-radius:10px;padding:10px;border:1px solid #2980B925"><div style="font-size:11px;color:#2980B9;line-height:1.4">💡 Se não tiveres estes valores, a NEXUS estima-os automaticamente nos primeiros 2-4 treinos.</div></div></div>
+    <div class="scroll-area" style="padding:14px 18px">
+    <p style="font-size:12px;color:#888;margin-bottom:14px">Para optimizar o programa de performance. Podes saltar e introduzir mais tarde.</p>
+    <div style="margin-bottom:12px"><div style="font-size:11px;color:#555;margin-bottom:5px;font-weight:600">VO2max estimado (ml/kg/min)</div><div style="background:#1A1A1A;border-radius:10px;padding:10px 14px;border:1px solid #2E2E2E;display:flex;gap:8px;align-items:center"><i class="ti ti-lungs" style="color:#FF6B35;font-size:16px"></i><span style="font-size:13px;color:#444">ex: 45</span></div></div>
+    <div style="margin-bottom:12px"><div style="font-size:11px;color:#555;margin-bottom:5px;font-weight:600">FTP — ciclismo (Watts)</div><div style="background:#1A1A1A;border-radius:10px;padding:10px 14px;border:1px solid #2E2E2E;display:flex;gap:8px;align-items:center"><i class="ti ti-bike" style="color:#FF6B35;font-size:16px"></i><span style="font-size:13px;color:#444">ex: 220</span></div></div>
+    <div style="margin-bottom:12px"><div style="font-size:11px;color:#555;margin-bottom:5px;font-weight:600">Pace 5km — corrida</div><div style="background:#1A1A1A;border-radius:10px;padding:10px 14px;border:1px solid #2E2E2E;display:flex;gap:8px;align-items:center"><i class="ti ti-run" style="color:#FF6B35;font-size:16px"></i><span style="font-size:13px;color:#444">ex: 25:30 min</span></div></div>
+    <div style="margin-bottom:12px"><div style="font-size:11px;color:#555;margin-bottom:5px;font-weight:600">1RM Squat (kg)</div><div style="background:#1A1A1A;border-radius:10px;padding:10px 14px;border:1px solid #2E2E2E;display:flex;gap:8px;align-items:center"><i class="ti ti-barbell" style="color:#FF6B35;font-size:16px"></i><span style="font-size:13px;color:#444">ex: 120</span></div></div>
+    <div style="background:#2980B910;border-radius:10px;padding:10px;border:1px solid #2980B925"><div style="font-size:11px;color:#2980B9;line-height:1.4">💡 Se não tiveres estes valores, a NEXUS estima-os automaticamente nos primeiros 2-4 treinos.</div></div>
+    </div>
     <div class="bottom-bar"><button class="btn-primary" onclick="goToScreen(13)">Continuar <i class="ti ti-arrow-right"></i></button><span class="skip-link" onclick="goToScreen(13)">Saltar — introduzir mais tarde</span></div>
   </div>
+</div>
+</div></div>
+
+
+<div class="nav-pills" id="app-nav"></div>
+
+<div class="nav-pills" id="ob-nav">
+  <button class="pill active" onclick="goToScreen(1)">Bem-vindo</button>
+  <button class="pill" onclick="goToScreen(2)">Desportos</button>
+  <button class="pill" onclick="goToScreen(3)">Objectivo</button>
+  <button class="pill" onclick="goToScreen(4)">Experiência</button>
+  <button class="pill" onclick="goToScreen(5)">Horário</button>
+  <button class="pill" onclick="goToScreen(6)">Equipamento</button>
+  <button class="pill" onclick="goToScreen(7)">Saúde</button>
+  <button class="pill" onclick="goToScreen(8)">Dispositivos</button>
+  <button class="pill" onclick="goToScreen(9)">Corpo</button>
+  <button class="pill" onclick="goToScreen(10)">Saúde ♀</button>
+  <button class="pill" onclick="goToScreen(11)">Saúde ♂</button>
+  <button class="pill" onclick="goToScreen(12)">Eventos</button>
+  <button class="pill" onclick="goToScreen(13)">Perfil ✓</button>
+  <button class="pill" onclick="goToScreen(14)">A gerar…</button>
+  <button class="pill" onclick="goToScreen(15)">Pronto! ⚡</button>
+  <button class="pill" onclick="goToScreen(16)">Aviso Med.</button>
+  <button class="pill" onclick="goToScreen(17)">Mobilidade</button>
+  <button class="pill" onclick="goToScreen(18)">Suplementos</button>
+  <button class="pill" onclick="goToScreen(19)">Nutrição</button>
+  <button class="pill" onclick="goToScreen(20)">Métricas</button>
+</div>
+
 <div class="page-footer">
   <p>NEXUS · Arquitectura v19.0 · Maio 2026</p>
   <p style="margin-top:4px">Mockup unificado — <span>App Screens + Onboarding</span></p>
