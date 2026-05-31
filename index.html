@@ -1150,7 +1150,6 @@ el.innerHTML=`<div class="screen-hdr row-between"><button onclick="setScreen('bo
 ${[['Cédula','OMD 45321'],['Instituição','Clínica do Movimento — Lisboa'],['Especialidade','Medicina Desportiva, Cardiologia Desportiva'],['Membro desde','Janeiro 2026'],['Regras propostas','12'],['Regras aprovadas','34'],['Taxa de aprovação','89%']].map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1E1E1E"><span style="font-size:12px;color:#666">${k}</span><span style="font-size:12px;color:#ccc">${v}</span></div>`).join('')}
 </div>
 <div class="bottom-bar"><button class="btn-primary">Alterar Papel</button><button class="btn-secondary" style="color:#E74C3C">Suspender Acesso</button></div>`;}
-}
 
 
 // ── SOCIAL SCREENS ─────────────────────────────────────────────────────────
@@ -1566,6 +1565,8 @@ ${[{gene:'MTHFR C677T',result:'CT (heterozigoto)',impact:'Metabolismo de folato 
 <div style="font-size:10px;color:#666">→ ${g.action}</div>
 </div>`).join('')}
 </div>`;}
+}
+
 
 // ONBOARDING
 let currentObScreen=1;
